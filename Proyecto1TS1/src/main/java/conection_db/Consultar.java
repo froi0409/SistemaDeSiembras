@@ -57,8 +57,7 @@ public class Consultar {
      * @param atributo
      * @param dato
      * @return 
-     */
-       
+     */       
     public List<ArrayList<String>> obtenerRegistros(String queryAux, ArrayList<String> dato){
         List<ArrayList<String>> resultadoTab = new ArrayList();
         try {            

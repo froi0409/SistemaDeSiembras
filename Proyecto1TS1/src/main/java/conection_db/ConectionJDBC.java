@@ -17,9 +17,9 @@ import java.util.logging.Logger;
  * @author grifiun
  */
 public class ConectionJDBC {
-    static String USER = "root";
-    static String PASS = "123@MySQL";
-    static String STRING_CONECTION = "jdbc:mysql://localhost:3306/BANCO";
+    static String USER = "moon";
+    static String PASS = "password";
+    static String STRING_CONECTION = "jdbc:mysql://localhost:3306/SUDENING_MOON";
     static Connection conexion = null;
     
     /**

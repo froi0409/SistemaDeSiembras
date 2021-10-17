@@ -28,7 +28,27 @@ public class Registrar {
     public Registrar(List<ArrayList<String>> queryDato, ArrayList<String> query){
         this.queryDato = queryDato;
         this.query = query;        
-    }    
+    }
+
+    /**
+     * Contructor de la clase registrar
+     * recibe los parametros de:
+     * ArrayList<String> queryDato;
+     * String query;
+     */
+    public Registrar(ArrayList<String> queryDato, String query){
+        //Creamos las variables auxiliares que pide la clase registro
+        List<ArrayList<String>> datoQueryAux = new ArrayList();
+        ArrayList<String> queryAux = new ArrayList();
+        
+        //Agregamos la query
+        queryAux.add(query);
+        //Agregamos los datos
+        datoQueryAux.add(queryDato);
+        
+        this.queryDato = datoQueryAux;
+        this.query = queryAux;        
+    }     
 
     /**
      * realizamos los registros
@@ -45,7 +65,6 @@ public class Registrar {
                 cdp.crearDeclaracionPreparada(queryDato.get(i), query.get(i)).executeUpdate();
             } catch (SQLException ex) {
                 System.out.println("error: "+ ex.getMessage());
-                archivo_xml.MensajeResultadoCargaArchivo.setMensajeErrores(ex.getMessage());
             }
         }
     }
