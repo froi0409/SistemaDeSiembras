@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>crear usuario</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link
@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
 
     </head>
-    <body background="../../resources/img/create_user.jpg">
+    <body>
 
         <br>
         <div class="container-sm">
@@ -27,26 +27,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 
                 </div>
                 <div class="col-sm-6">
-                    <div class="h-100 p-5 bg-light border rounded-3">
+                    <div class="formlario h-100 p-5 border rounded-3">
                         <h3 style="color:#202643">Registro de usuario</h3>
                         <h6 style="color:#202643">es facil y rapido.</h6><br>
                         <form class="row g-3 needs-validation"  method="POST">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="codigo_usuario" name="codigo_usuario"
                                        placeholder="codigo usuario..." required />
-                                <label for="codigo_usuario" style="color:#97908c">Codigo de usuario <span style="color:red">*</span></label>
+                                <label for="codigo_usuario" style="color:#97908c">Nombre de usuario (es el que utilizara para iniciar sesion) <span style="color:red">*</span></label>
                                 <div class="invalid-tooltip" oninput="codigo_usuario">
                                     Please choose a unique and valid username.
                                 </div>
                             </div>
-                            <div class="form-floating">
-                                <input type="text" class="form-control" id="nombre" name="nombre" required 
-                                       placeholder="ingresar nombre completo..."/>
-                                <label for="nombre" style="color:#97908c">Nombre Usuario<span style="color:red">*</span></label>
-                                <div class="invalid-tooltip">
-                                    Please choose a unique and valid username.
+                            <div class="row g-3">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" required 
+                                               placeholder="ingresar nombre completo..."/>
+                                        <label for="nombre" style="color:#97908c">Nombre<span style="color:red">*</span></label>
+                                        <div class="invalid-tooltip">
+                                            Please choose a unique and valid username.
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="apellido" name="apellido" required 
+                                               placeholder="ingresar nombre completo..."/>
+                                        <label for="nombre" style="color:#97908c">Apellido<span style="color:red">*</span></label>
+                                        <div class="invalid-tooltip">
+                                            Please choose a unique and valid lastname.
+                                        </div>
+                                    </div>
+                                </div><!-- comment --><!-- comment -->
                             </div>
+
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="correo" name="correo"
                                        placeholder="e-mail.." required  />

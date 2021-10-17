@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="../js/validation.js"></script>
-        <title>JSP Page</title>
+        <title>Crear Usuario</title>
     </head>
     <body background="../resources/img/create_user.jpg">
         
