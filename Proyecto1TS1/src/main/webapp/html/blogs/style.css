@@ -8,7 +8,7 @@
 }
 .modal{
     /*background-color: #817e82;*/
-    background-image: url(../../resources/img/publicar.jpg);
+    background-image: url(../../resources/img/carousel/publicar.jpg);
     position:fixed;
     top:0;
     right:0;
@@ -44,7 +44,7 @@ margin: 4rem;
 body {
     margin: 0;
     padding:0;
-    background-image: url(../../resources/img/blogs.jpg);
+    background-image: url(../../resources/img//carousel/blogs.jpg);
     background-color: #202643;
     background-position: center center;
     background-repeat: no-repeat;

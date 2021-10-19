@@ -9,13 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include file="../html/importaciones/importaciones-head.html" %>
         <link rel="stylesheet" href="../html/blogs/style.css">
-       
-                
         <title>blogs personal</title>
     </head>
     <body>
-       <%@include file="../html/blogs/plublicacion.html"%>
+        <%@include file="../html/nav/cabecera-principal.html" %>
+        <div class="main">
+            <%@include file="../html/blogs/plublicacion.html"%>
+        </div>
+       
      
     </body>
 </html>
