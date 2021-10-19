@@ -1,7 +1,7 @@
 <%-- 
-    Document   : crear-usuario
-    Created on : 14 oct. 2021, 18:25:00
-    Author     : hectoradolfo
+    Document   : iniciar-sesion.jsp
+    Created on : 18/10/2021, 16:57:17
+    Author     : froi-pc
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,13 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
-        <title>Crear Usuario</title>
+        <title>Inicio de Sesion</title>
     </head>
     <body background="../resources/img/create_user.jpg">
         
         <%@include file="../html/nav/cabecera-principal.html" %>
         <div class="main">
-            <%@include file="../html/usuarios/crear-usuario.html"%>
+            <%@include file="../html/usuarios/iniciar-sesion.html"%>
         </div>
         
     </body>

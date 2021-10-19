@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding:0;
-    background-image: url(../resource/img/fondo.jpg);
+    background-image: url(../resources/img/fondo.jpg);
     background-color: #202643;
     background-position: center center;
     background-repeat: no-repeat;
@@ -71,7 +71,7 @@ img {
 
 /*titulo de la página*/
 .tituloSitio {
-    background-image: url(../resource/img/pasto2.png);
+    background-image: url(../resources/img/pasto2.png);
     background-color: #202643;
     background-position: left bottom;
     background-repeat: repeat-x;
@@ -93,6 +93,12 @@ img {
 /*cuerpo de la página*/
 .main {
     margin-top: 167px;
+    padding-top: 25px;
+    height: 100%;
+}
+
+.main-index {
+    margin-top: 137px;
     padding-top: 25px;
     height: 100%;
 }
@@ -122,10 +128,10 @@ img {
 /*FUENTES*/
 @font-face {
     font-family: titulos;
-    src: url(../resource/fonts/VarelaRound-Regular.ttf);
+    src: url(../resources/fonts/VarelaRound-Regular.ttf);
 }
 
 @font-face {
     font-family: texto-plano;
-    src: url(../resource/fonts/Rubik-Regular.ttf);
+    src: url(../resources/fonts/Rubik-Regular.ttf);
 }
