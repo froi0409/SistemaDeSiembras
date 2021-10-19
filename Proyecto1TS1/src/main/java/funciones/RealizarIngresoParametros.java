@@ -23,7 +23,7 @@ public class RealizarIngresoParametros {
         PrepareDataFromIdentificadores prepareData;
         
         //Obtenemos el listado de los parametros
-        String parametros = (String) request.getAttribute("parametros");
+        String parametros = (String) request.getSession().getAttribute("parametros");
         
         //Obtenemos el listado de identificadores en un listado
         ArrayList<String> identificadores = new ArrayList<String>(Arrays.asList(parametros.split(",")));

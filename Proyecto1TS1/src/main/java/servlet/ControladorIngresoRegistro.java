@@ -36,7 +36,7 @@ public class ControladorIngresoRegistro extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Obtenemos el listado de los parametros
-        String parametros = (String) request.getAttribute("parametros");        
+        String parametros = (String) request.getSession().getAttribute("parametros");   
         //Obtenemos el listado de identificadores en un listado
         ArrayList<String> identificadores = new ArrayList<String>(Arrays.asList(parametros.split(",")));
         
@@ -53,13 +53,13 @@ public class ControladorIngresoRegistro extends HttpServlet {
             
             //Registramos correo
             parametrosAux = "CORREO,codigo_correo,codigo_usuario,correo";
-            request.setAttribute("parametros", parametrosAux);
+            request.getSession().setAttribute("parametros", parametrosAux);
             
             realizarIngreso.realizarIngresoFromParametros(request);
             
             //Registramos telefono
             parametrosAux = "TELEFONO,codigo_telefono,codigo_usuario,telefono";
-            request.setAttribute("parametros", parametrosAux);
+            request.getSession().setAttribute("parametros", parametrosAux);
             
             realizarIngreso.realizarIngresoFromParametros(request);
         }       
