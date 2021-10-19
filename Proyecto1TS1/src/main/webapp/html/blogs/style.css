@@ -1,0 +1,62 @@
+.modal-contenido{
+    background-color:#202643;
+    width:500px;
+    height: 200px;
+    padding: 10px 20px;
+    margin: 10% auto;
+    position: relative;
+}
+.modal{
+    /*background-color: #817e82;*/
+    background-image: url(../../resources/img/carousel/publicar.jpg);
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    opacity:0;
+    pointer-events:none;
+    transition: all 1s;
+}
+#miModal:target{
+    opacity:1;
+    pointer-events:auto;
+}
+
+
+.contenedor-input {
+    background-color: #8e7d7c;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+    padding: 20px;
+    width: 200px;
+    justify-content: center;
+    text-align: center;
+    /* IMPORTANTE */
+}
+
+
+.div {
+margin: 4rem;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    background-image: url(../../resources/img//carousel/blogs.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.button-publicar {
+	background: #154e68;
+	width: 115px;
+	height: 35px;
+	font-size: 18px;
+	text-align: center;
+}
