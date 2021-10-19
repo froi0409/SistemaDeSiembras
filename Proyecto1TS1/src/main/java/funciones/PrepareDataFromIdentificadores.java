@@ -62,13 +62,13 @@ public class PrepareDataFromIdentificadores {
                 datos.add(auxEn);                
             }
             //FECHAS
-            else if(identificadores.get(i).equals("birth") ||
+            /*else if(identificadores.get(i).equals("birth") ||
                     identificadores.get(i).equals("fecha") &&
                     request.getSession().getAttribute("fechaSistema").equals("activado")){
                 //Si son fechas y la fecha del sistema esta activado
                 //Agregamos la fecha del sistema                
                 datos.add((String)request.getSession().getAttribute("fecha_sistema"));            
-            }
+            }*/
             //DATOS NORMALES
             else{//si es un dato ordinario (a recibir del request)
                  //datos.add(request.getParameter(identificadores.get(i)));

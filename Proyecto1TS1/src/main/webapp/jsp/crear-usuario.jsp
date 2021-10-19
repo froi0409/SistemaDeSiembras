@@ -8,6 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%
+            //Declaramos los nombres de los atributos        
+            String parametros = "USUARIO,codigo_usuario,nombre,apellido,sexo,birth,password";
+            request.setAttribute("parametros", parametros);
+        %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
         <title>Crear Usuario</title>

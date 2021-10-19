@@ -37,7 +37,7 @@ public class ControladorLogin extends HttpServlet {
             throws ServletException, IOException {
         String codigo, password, usuarioRol = "";
         String[] tabla = {"USUARIO","ADMIN"};//Se usara para identificar el usuario
-        codigo = request.getParameter("codigo");
+        codigo = request.getParameter("codigo_usuario");
         password = request.getParameter("password");
         
         Consultar cons = new Consultar();//instanciamos
@@ -68,11 +68,11 @@ public class ControladorLogin extends HttpServlet {
         String direccion = "";
         switch(usuarioRol){
             case "":                 //no encuentra al usuario           
-                direccion = "jsp/login.jsp";
+                direccion = "jsp/iniciar-sesion.jsp";
                 response.sendRedirect(direccion);
                 break;
             default:
-                direccion = "jsp/home.jsp";
+                direccion = "jsp/blogs.jsp";
                 response.sendRedirect(direccion);
                 break;
         }

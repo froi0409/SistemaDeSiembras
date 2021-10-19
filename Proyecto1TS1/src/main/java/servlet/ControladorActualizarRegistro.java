@@ -78,7 +78,7 @@ public class ControladorActualizarRegistro extends HttpServlet {
         request.getSession().setAttribute("mensaje", "El registro se hizo con satisfaccion");
         
         //redirigimos       
-        String direccion = "jsp/home.jsp";
+        String direccion = "jsp/blogs.jsp";
         response.sendRedirect(direccion);
         
        

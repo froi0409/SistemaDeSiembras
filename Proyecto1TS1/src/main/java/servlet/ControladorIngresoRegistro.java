@@ -6,6 +6,7 @@ package servlet;
 
 import conection_db.Consultar;
 import funciones.PrepareDataFromIdentificadores;
+import funciones.RealizarIngresoParametros;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -34,56 +35,46 @@ public class ControladorIngresoRegistro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //////////////////////////////////////////////PARTE REGISTRO
-        //Instanciamos
-        RealizarRegistroTabla registro;
-        PrepareDataFromIdentificadores prepareData;
-        
         //Obtenemos el listado de los parametros
-        String parametros = (String) request.getAttribute("parametros");
-        
+        String parametros = (String) request.getAttribute("parametros");        
         //Obtenemos el listado de identificadores en un listado
         ArrayList<String> identificadores = new ArrayList<String>(Arrays.asList(parametros.split(",")));
         
-        //le damos valor al objeto
-        prepareData = new PrepareDataFromIdentificadores(identificadores);//agregamos los identificadores
-        //Obtenemos el listado de datos a partir del request y el listado de identificadores
-        ArrayList<String> datos = prepareData.getDataFromIdentificadores(request);               
+        //Instanciammos
+        RealizarIngresoParametros realizarIngreso = new RealizarIngresoParametros();
         
-        //le damos valor al objeto de registro utilizando el listado de identificadores y datos
-        registro = new RealizarRegistroTabla(identificadores, datos);
-        registro.realizarRegistro();//realizamos el registro
+        //Realizamos el registro
+        realizarIngreso.realizarIngresoFromParametros(request);      
         
-        //////////////////////////////////////////////PARTE COMPROBACION         
-         //Retornamos otra pagina dependiendo del resultado
-        Consultar cons = new Consultar();
-        boolean isRegistroCompleto = false;
-        //Obtenemos el resutlado TRUE/FALSE si se realizo el registro
-        isRegistroCompleto = cons.consultarExistenciaRegistro(identificadores.get(0), //TABLA
-                new ArrayList<String>(Arrays.asList(identificadores.get(1))), // Consutlar PK 
-                new ArrayList<String>(Arrays.asList(datos.get(0))));//con valor
-       
-        if(isRegistroCompleto){//Si el registro se hizo de forma exitosa
-            if(identificadores.get(0).equalsIgnoreCase("usuario") ||
-               identificadores.get(0).equalsIgnoreCase("admin")){
-                request.getSession().setAttribute("mensaje", "El registro se hizo con satisfaccion\nel codigo de "+identificadores.get(0)+" es: "+
-                        datos.get(0));//En el caso de usuarios y administradores, el primer dato es el codigo
-            }else
-                request.getSession().setAttribute("mensaje", "El registro se hizo con satisfaccion");
-        }
-        else{
-            request.getSession().setAttribute("mensaje", "El registro no se realizo debido a un error");
-        }        
+        //Condiciones, si se ingresa un usuario hay que registrar su correo y telefono        
+        if(identificadores.get(0).equalsIgnoreCase("USUARIO")){
+            //Declaramos los nombres de los atributos        
+            String parametrosAux;
+            
+            //Registramos correo
+            parametrosAux = "CORREO,codigo_correo,codigo_usuario,correo";
+            request.setAttribute("parametros", parametrosAux);
+            
+            realizarIngreso.realizarIngresoFromParametros(request);
+            
+            //Registramos telefono
+            parametrosAux = "TELEFONO,codigo_telefono,codigo_usuario,telefono";
+            request.setAttribute("parametros", parametrosAux);
+            
+            realizarIngreso.realizarIngresoFromParametros(request);
+        }       
         
+        
+        //retornamos a otra pagina
         request.getSession().setAttribute("codigoAleatorio", "activado");//volvemos a activar la generacion del codigo aleatorio
         request.getSession().setAttribute("fechaSistema", "activado");//volvemos a activar la generacion del codigo aleatorio
         
-        if(((String)request.getSession().getAttribute("redireccionarRegistro")) == null || ((String)request.getSession().getAttribute("redireccionarRegistro")).length() == 0){
-            String direccion = "jsp/home.jsp";
+        //if(((String)request.getSession().getAttribute("redireccionarRegistro")) == null || ((String)request.getSession().getAttribute("redireccionarRegistro")).length() == 0){
+            String direccion = "jsp/blogs.jsp";
             response.sendRedirect(direccion);
-        }else{
-            request.getSession().setAttribute("redireccionarRegistro", "");
-        }
+        //}else{
+        //    request.getSession().setAttribute("redireccionarRegistro", "");
+        //}
     }
     
 
