@@ -22,3 +22,8 @@ function confirmarPassword() {
         tipo.type = "password";
     }
 }
+
+
+function abrirModal() {
+    document.getElementById('miModal').style.display = 'inline';
+}
