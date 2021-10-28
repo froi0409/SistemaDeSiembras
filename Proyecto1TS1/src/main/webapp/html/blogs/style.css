@@ -43,7 +43,7 @@
 
 
 .div {
-margin: 4rem;
+    margin: 4rem;
 }
 
 body {
@@ -59,9 +59,9 @@ body {
 
 
 .button-publicar {
-	background: #154e68;
-	width: 115px;
-	height: 35px;
-	font-size: 18px;
-	text-align: center;
+    background: #154e68;
+    width: 115px;
+    height: 35px;
+    font-size: 18px;
+    text-align: center;
 }

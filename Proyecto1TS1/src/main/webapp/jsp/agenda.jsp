@@ -1,6 +1,6 @@
 <%-- 
-    Document   : blogs
-    Created on : 15 oct. 2021, 0:13:27
+    Document   : agenda
+    Created on : 19 oct. 2021, 21:21:33
     Author     : hectoradolfo
 --%>
 
@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>agenda</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -16,15 +17,8 @@
             crossorigin="anonymous"
             >
 
-        <link rel="stylesheet" href="../html/blogs/style.css">
-        <script src="../js/validation.js"></script>
-
-        <title>blogs personal</title>
     </head>
     <body>
-        <%@include file="../html/blogs/plublicacion.html"%>
-
-        <%@include file= "../html/blogs/publicaciones.html" %>
-
+        <h1>!</h1>
     </body>
 </html>
