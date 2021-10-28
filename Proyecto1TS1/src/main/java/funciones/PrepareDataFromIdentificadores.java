@@ -5,7 +5,9 @@
 package funciones;
 
 import encriptador.Encriptar;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -46,7 +48,8 @@ public class PrepareDataFromIdentificadores {
                     identificadores.get(i).equals("codigo_comentario") ||
                     identificadores.get(i).equals("codigo_like") ||
                     identificadores.get(i).equals("codigo_telefono") ||
-                    identificadores.get(i).equals("codigo_correo")                    
+                    identificadores.get(i).equals("codigo_correo") ||
+                    identificadores.get(i).equals("codigo_agenda")                    
                     /*&& request.getSession().getAttribute("codigoAleatorio").equals("activado")*/){
                 //Creamos el codigo si esta activado la generacion de codigo aleatorio
                 GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
@@ -62,13 +65,16 @@ public class PrepareDataFromIdentificadores {
                 datos.add(auxEn);                
             }
             //FECHAS
-            /*else if(identificadores.get(i).equals("birth") ||
-                    identificadores.get(i).equals("fecha") &&
-                    request.getSession().getAttribute("fechaSistema").equals("activado")){
+            else if(identificadores.get(i).equals("fecha") /*&&
+                    request.getSession().getAttribute("fechaSistema").equals("activado")*/){
                 //Si son fechas y la fecha del sistema esta activado
-                //Agregamos la fecha del sistema                
-                datos.add((String)request.getSession().getAttribute("fecha_sistema"));            
-            }*/
+                //Agregamos la fecha del sistema  
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaAuxiliar = df.format(new Date());
+                
+                //datos.add((String)request.getSession().getAttribute("fecha_sistema"));     
+                datos.add(fechaAuxiliar);
+            }
             //DATOS NORMALES
             else{//si es un dato ordinario (a recibir del request)
                  //datos.add(request.getParameter(identificadores.get(i)));
