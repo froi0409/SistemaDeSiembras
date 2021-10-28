@@ -1,6 +1,6 @@
 .modal-contenido{
     background-color:#202643;
-    width:500px;
+    width:600px;
     height: 200px;
     padding: 10px 20px;
     margin: 10% auto;
@@ -30,7 +30,7 @@
     margin-right: auto;
     opacity: 0.8;
     padding: 20px;
-    width: 200px;
+    width: 300px;
     justify-content: center;
     text-align: center;
     /* IMPORTANTE */
