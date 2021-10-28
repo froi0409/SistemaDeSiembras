@@ -11,14 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
         <link rel="stylesheet" href="../html/blogs/style.css">
-<<<<<<< HEAD
-=======
-                
->>>>>>> 4123db8cdc6636eea20fa5e00955fccd278d38e7
         <title>blogs personal</title>
     </head>
     <body>
-        <%@include file="../html/nav/cabecera-principal.html" %>
+        <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
             <%@include file="../html/blogs/plublicacion.html"%>
         </div>

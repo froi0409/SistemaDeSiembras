@@ -20,7 +20,7 @@
             session.setAttribute("parametros", parametros);  
         %>
         
-        <%@include file="../html/nav/cabecera-principal.html" %>
+        <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
             <%@include file="../html/usuarios/nueva-agenda.html"%>
         </div>

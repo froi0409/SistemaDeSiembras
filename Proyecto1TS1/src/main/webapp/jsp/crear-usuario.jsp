@@ -19,7 +19,7 @@
     </head>
     <body background="../resources/img/create_user.jpg">
         
-        <%@include file="../html/nav/cabecera-principal.html" %>
+        <%@include file="../html/nav/cabecera-no-sesion.html" %>
         <div class="main">
             <%@include file="../html/usuarios/crear-usuario.html"%>
         </div>
