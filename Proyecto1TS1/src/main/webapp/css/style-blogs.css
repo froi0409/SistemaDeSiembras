@@ -30,3 +30,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
   opacity:1;
   pointer-events:auto;
 }
+
+body {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/fondo.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
