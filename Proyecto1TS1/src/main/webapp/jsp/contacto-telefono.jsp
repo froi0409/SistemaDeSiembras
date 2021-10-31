@@ -12,6 +12,9 @@
             String parametros
                     = "contacto, telefono";
             session.setAttribute("parametros", parametros);
+            //listados que necesitamos para desplegar los contactos del usuario
+            ObtenerListados obtenerListados = new ObtenerListados();
+            ArrayList<String> contactoTel = obtenerListados.getFrom("contacto_telefono");
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
@@ -33,19 +36,21 @@
                                 <th>Codigo</th>
                                 <th>Numero de Telefono</th>
                                 <th> </th>
-                            </tr> <!-- 
-                            se tiene que crear un controlador ControladorCOntacto que tenga un arrayList 
-                                  llamado contactoTel de contactos con los
-                                  atributos codigo_telefono y telefono, para poder llenar la tabla y para 
-                                  eliminar se tiene que diregir a esta misma pagina despues de eliminar
+                            </tr> <!--  el arrayList contactoTel debe de tener un objeto con los atributos
+                                  codigo_telefono y telefono
                             -->
-                            <c:forEach items="${contactoTel}" var="ct">
-                                <tr>
-                                    <td>${ct.codigo_telefono}</td>
-                                    <td>${ct.telefono}</td>
-                                    <td><a href="${pageContext.request.contextPath}/ControladorContacto?contacto=${ct.codigo_telefono}">Eliminar</a></td>
-                                </tr>
-                            </c:forEach>
+                            <%
+                                for (int i = 0; i < contactoTel.size(); i++) {
+                            %>
+                            <tr>
+                                <td><%=contactoTel.get(i).getCodigoTelefono()%> </td>
+                                <td><%=contactoTel.get(i).getTelefono()%> </td>
+                                <td><a href="../jsp/contacto-correo.jsp?codigo_correo=<%=contactoTel.get(i).getCodigoTelefono()%>">Eliminar</a></td>
+                            </tr>
+
+                            <%
+                                }
+                            %>
                         </table>
                     </div>
                 </div>

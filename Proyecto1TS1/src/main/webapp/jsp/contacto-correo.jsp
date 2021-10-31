@@ -11,8 +11,12 @@
         <%
             //Declaramos los nombres de los atributos
             String parametros
-                    = "contacto correo";
+                    = "contacto, correo";
             session.setAttribute("parametros", parametros);
+
+            //listados que necesitamos para desplegar los contactos del usuario
+            ObtenerListados obtenerListados = new ObtenerListados();
+            ArrayList<String> contactoCorreo = obtenerListados.getFrom("contacto_correo");
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
@@ -34,19 +38,21 @@
                                 <th>Codigo</th>
                                 <th>correo electronico</th>
                                 <th> </th>
-                            </tr> <!-- 
-                            se tiene que crear un controlador ControladorCOntacto que tenga un arrayList
-                                   de nombre contactoCorreo de contactos con los
-                                  atributos codigo_correo y correo, para poder llenar la tabla y para 
-                                  eliminar se tiene que diregir a esta misma pagina despues de eliminar
+                            </tr> <!--  el arrayList contactoCorreo debe de tener los atributos
+                                  codigo_correo y correo
                             -->
-                            <c:forEach items="${contactoCorreo}" var="ct">
-                                <tr>
-                                    <td>${ct.codigo_correo}</td>
-                                    <td>${ct.correo}</td>
-                                    <td><a href="${pageContext.request.contextPath}/ControladorContacto?contacto=${ct.codigo_correo}">Eliminar</a></td>
-                                </tr>
-                            </c:forEach>
+                            <%
+                                for (int i = 0; i < contactoCorreo.size(); i++) {
+                            %>
+                            <tr>
+                                <td><%=contactoCorreo.get(i).getCodigoCorreo()%> </td>
+                                <td><%=contactoCorreo.get(i).getCorreo()%> </td>
+                                <td><a href="../jsp/contacto-correo.jsp?codigo_correo=<%=contactoCorreo.get(i).getCodigoCorreo()%>">Eliminar</a></td>
+                            </tr>
+
+                            <%
+                                }
+                            %>
                         </table>
                     </div>
                 </div>
