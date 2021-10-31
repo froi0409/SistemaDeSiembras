@@ -15,9 +15,9 @@
             session.setAttribute("parametros", parametros);
 //Cargamos el listado de plantas
 //usamos el objeto de funciones.ObtenerListados, por tanto hay que importar
-            /* ObtenerListados obtenerListados = new ObtenerListados();
+            ObtenerListados obtenerListados = new ObtenerListados();
             ArrayList<String> listadoTipoPlanta = obtenerListados.getFrom("tipo_planta");
-            ArrayList<String> listadoFaseLunar = obtenerListados.getFrom("fase_lunar");*/
+            ArrayList<String> listadoFaseLunar = obtenerListados.getFrom("fase_lunar");
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
@@ -41,10 +41,10 @@
                                 <!--  //Aca harán un ciclo que cargará todos los datos, pueden usar un for each o un
                                   //for como en este ejemplo-->
                                 <%
-                                    for (int i = 0; i < listadoFaseLunar.size();) {
+                                    for (int i = 0; i < listadoFaseLunar.size(); i++) {
                                         String valorAux = listadoFaseLunar.get(i);
                                 %>
-                                <option value="<%=valorAux;%>"><%=valorAux;%></option>
+                                <option value="<%=valorAux%>"><%=valorAux%></option>
                                 <%
                                     }
                                 %>
@@ -53,10 +53,10 @@
                                 <!--  //Aca harán un ciclo que cargará todos los datos, pueden usar un for each o un
                                  //for como en este ejemplo-->
                                 <%
-                                    for (int i = 0; i < listadoTipoPlanta.size();) {
+                                    for (int i = 0; i < listadoTipoPlanta.size(); i++) {
                                         String valorAux = listadoTipoPlanta.get(i);
                                 %>
-                                <option value="<%= valorAux;%>"> <%=valorAux;%></option>
+                                <option value="<%=valorAux%>"> <%=valorAux%></option>
                                 <%
                                     }
                                 %>
