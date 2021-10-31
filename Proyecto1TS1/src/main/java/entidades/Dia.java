@@ -20,6 +20,10 @@ public class Dia {
     public void setNumeroDia(int numeroDia) {
         this.numeroDia = numeroDia;
     }
+    
+    public void setNumeroDia(String numeroDia) {
+        this.numeroDia = Integer.parseInt(numeroDia);
+    }
 
     public int getPorcentajeFase() {
         return porcentajeFase;
@@ -28,6 +32,10 @@ public class Dia {
     public void setPorcentajeFase(int porcentajeFase) {
         this.porcentajeFase = porcentajeFase;
     }
+    
+    public void setPorcentajeFase(String porcentajeFase) {
+        this.porcentajeFase = Integer.parseInt(porcentajeFase);
+    }
 
     public int getNumeroActividades() {
         return numeroActividades;
@@ -35,6 +43,10 @@ public class Dia {
 
     public void setNumeroActividades(int numeroActividades) {
         this.numeroActividades = numeroActividades;
+    }
+    
+    public void setNumeroActividades(String numeroActividades) {
+        this.numeroActividades = Integer.parseInt(numeroActividades);
     }
     
     

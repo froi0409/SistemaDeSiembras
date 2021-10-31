@@ -42,9 +42,12 @@ public class GetAttributeParameterRequest {
             }else{*/
                 aux = (String) request.getParameter(nombreAtributo);
                 if(aux == null || aux.length() == 0)//usamos Attribute si Parameter no nos retorna nada
-                aux = (String) request.getAttribute(nombreAtributo);
+                    aux = (String) request.getAttribute(nombreAtributo);
                 if(aux == null || aux.length() == 0)//usamos Attribute si Parameter no nos retorna nada
-                aux = (String) request.getSession().getAttribute(nombreAtributo);
+                    aux = (String) request.getSession().getAttribute(nombreAtributo);
+                
+                if(aux == null || aux.length() == 0 && nombreAtributo.equalsIgnoreCase("estado"))
+                    aux = "activo";
             /*}*/
             
         }catch(Exception ex){
