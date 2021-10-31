@@ -4,6 +4,7 @@
     Author     : hectoradolfo
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,12 +12,12 @@
         <%
             //Declaramos los nombres de los atributos
             String parametros
-                    = "contacto, correo";
+                    = "contacto correo";
             session.setAttribute("parametros", parametros);
 
             //listados que necesitamos para desplegar los contactos del usuario
             ObtenerListados obtenerListados = new ObtenerListados();
-            ArrayList<String> contactoCorreo = obtenerListados.getFrom("contacto_correo");
+            ArrayList<String> contactoCorreo = obtenerListados.getFrom("contacto_correo", request);
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
