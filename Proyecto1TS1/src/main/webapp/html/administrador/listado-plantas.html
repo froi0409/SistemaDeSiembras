@@ -1,0 +1,31 @@
+<div class="row g-3">
+    <div class="col-sm-3">
+
+    </div>
+    <div class="col-sm-6">
+        <div class="formulario h-100 p-5  border rounded-3">
+            <h3>Listado de Plantas</h3>
+            <table class="table table-dark table-striped">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo de Planta</th>
+                    <th>Descripcion</th>
+                    <th>Duracion</th>
+                </tr>
+                <%
+                    for (int i = 0; i < listado.size(); i++) {
+                %>
+                <tr>
+                    <td><%=listado.get(i).getNombre()%></td>
+                    <td><%=listado.get(i).getTipoPlanta()%></td>
+                    <td><%=listado.get(i).getDescripcionPlanta()%></td>
+                    <td><%=listado.get(i).getDuracionDias()%></td>
+                </tr>
+
+                <%
+                    }
+                %>
+            </table>
+        </div>
+    </div>
+</div>s
