@@ -136,3 +136,38 @@ img {
     src: url(../resources/fonts/Rubik-Regular.ttf);
 }
 
+/*fondo para crear planta*/
+.body-new-planta {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/new-planta.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*fondo para crear nueva consideracion para una planta*/
+.body-consideracion-planta {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/consideracion.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*fondo para crear nuevo admin*/
+.body-admin-crear {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/admin.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}

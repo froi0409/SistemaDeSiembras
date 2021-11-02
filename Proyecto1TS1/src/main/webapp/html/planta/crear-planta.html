@@ -1,0 +1,44 @@
+<!-- autor: adolfosc
+-->
+
+
+<br><br>
+
+<div class="container-sm">
+    <div class="row g-3">
+
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+            <div class="formulario h-100 p-5  border rounded-3">
+                <h3 style="color:#202643">Crear nuevo tipo de planta</h3>
+                <h6 style="color:#202643"></h6><br>
+                <form class="row g-3 needs-validation" action="../ControladorIngresoRegistro" method="POST">
+                    <div class="form-floating">
+                        <input type="text" class="form-control inputPrueba" id="tipo" name="tipo"
+                               placeholder="tipo planta" required />
+                        <label for="tipo_planta" style="color:#97908c">Tipo de planta <span style="color:red">*</span></label>
+                        <div class="invalid-tooltip" oninput="tipo_planta">
+                            Please choose a unique and valid tipo planta.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text"  class="form-control inputPrueba" id="descripcion" name="descripcion" 
+                                   placeholder="escribe una descripcion" required />
+                        <label for="descripcion" style="color:#97908c">Descripcion de la planta <span style="color:red">*</span></label>
+                        <div class="invalid-tooltip" oninput="tipo_planta">
+                            Please choose a unique and valid descripcion.
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn botonRegistro" type="submit">Crear Nueva Planta</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
