@@ -23,7 +23,6 @@ function confirmarPassword() {
     }
 }
 
-
 function abrirModal() {
     document.getElementById('miModal').style.display = 'inline';
 }

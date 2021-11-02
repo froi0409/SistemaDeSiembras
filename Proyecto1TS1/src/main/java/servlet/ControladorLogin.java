@@ -71,7 +71,11 @@ public class ControladorLogin extends HttpServlet {
                 direccion = "jsp/iniciar-sesion.jsp";
                 response.sendRedirect(direccion);
                 break;
-            default:
+            default://Usuario correcto
+                
+                //Establecemos el código del usuario
+                request.getSession().setAttribute("codigo_usuario", codigo);
+                
                 direccion = "jsp/blogs.jsp";
                 response.sendRedirect(direccion);
                 break;

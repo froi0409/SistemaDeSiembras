@@ -5,6 +5,7 @@
 package servlet;
 
 import conection_db.Consultar;
+import funciones.GetAttributeParameterRequest;
 import funciones.PrepareDataFromIdentificadores;
 import funciones.RealizarIngresoParametros;
 import java.io.IOException;
@@ -52,23 +53,27 @@ public class ControladorIngresoRegistro extends HttpServlet {
             String parametrosAux;
             
             //Registramos correo
-            parametrosAux = "CORREO,codigo_correo,codigo_usuario,correo";
+            parametrosAux = "CONTACTO_CORREO,codigo_correo,codigo_usuario,correo";
             request.getSession().setAttribute("parametros", parametrosAux);
             
             realizarIngreso.realizarIngresoFromParametros(request);
             
             //Registramos telefono
-            parametrosAux = "TELEFONO,codigo_telefono,codigo_usuario,telefono";
+            parametrosAux = "CONTACTO_TELEFONO,codigo_telefono,codigo_usuario,telefono";
             request.getSession().setAttribute("parametros", parametrosAux);
             
             realizarIngreso.realizarIngresoFromParametros(request);
+            
+            //Establecemos el código del usuario
+            GetAttributeParameterRequest getAttribute = new GetAttributeParameterRequest(request);
+            request.getSession().setAttribute("codigo_usuario", getAttribute.getAttributOrParameter("codigo_usuario"));
         }       
         
         
         //retornamos a otra pagina
         request.getSession().setAttribute("codigoAleatorio", "activado");//volvemos a activar la generacion del codigo aleatorio
         request.getSession().setAttribute("fechaSistema", "activado");//volvemos a activar la generacion del codigo aleatorio
-        
+       
         //if(((String)request.getSession().getAttribute("redireccionarRegistro")) == null || ((String)request.getSession().getAttribute("redireccionarRegistro")).length() == 0){
             String direccion = "jsp/blogs.jsp";
             response.sendRedirect(direccion);

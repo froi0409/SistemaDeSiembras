@@ -18,6 +18,10 @@ public class GetAttributeParameterRequest {
     public GetAttributeParameterRequest(HttpServletRequest request) {
         this.request = request;
     }
+
+    public GetAttributeParameterRequest() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     //Se obtiene el dato ya sea con un get Attribute o un getParam
@@ -37,8 +41,13 @@ public class GetAttributeParameterRequest {
                 }
             }else{*/
                 aux = (String) request.getParameter(nombreAtributo);
-                if(aux == null)//usamos Attribute si Parameter no nos retorna nada
-                aux = (String) request.getAttribute(nombreAtributo);
+                if(aux == null || aux.length() == 0)//usamos Attribute si Parameter no nos retorna nada
+                    aux = (String) request.getAttribute(nombreAtributo);
+                if(aux == null || aux.length() == 0)//usamos Attribute si Parameter no nos retorna nada
+                    aux = (String) request.getSession().getAttribute(nombreAtributo);
+                
+                if(aux == null || aux.length() == 0 && nombreAtributo.equalsIgnoreCase("estado"))
+                    aux = "activo";
             /*}*/
             
         }catch(Exception ex){
