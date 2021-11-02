@@ -4,6 +4,8 @@
     Author     : froi-pc
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="funciones.ObtenerListados"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,7 +18,8 @@
     <body>
         
         <%
-            ArrayList<String> listado = funcion.ObtenerListados.getFrom("usuario");
+            ObtenerListados obtenerListados = new ObtenerListados();
+            List<ArrayList<String>> listado = obtenerListados.getTablaFrom("usuario");
         %>
         
         <%@include file="../html/nav/cabecera-administradores.html" %>
