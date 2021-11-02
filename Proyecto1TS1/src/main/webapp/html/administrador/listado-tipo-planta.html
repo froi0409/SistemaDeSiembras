@@ -13,8 +13,13 @@
                     for (int i = 0; i < listado.size(); i++) {
                 %>
                 <tr>
-                    <td><%=listado.get(i).getTipoPlanta()%></td>
-                    <td><%=listado.get(i).getDescripcionPlanta()%></td>
+                    <%
+                    for(int j = 0; j < lista.get(0).size(); j++) {
+                    %>
+                    <td><%=lista.get(i).get(j)</td>
+                    <%
+                    }
+                    %>
                 </tr>
 
                 <%
