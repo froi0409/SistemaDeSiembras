@@ -171,3 +171,21 @@ img {
     background-size: cover;
     background-attachment: fixed;
 }
+
+/*Configuraciones para el select*/
+.desplegable {
+    float: left;
+    transition: 1s;
+    display: block;
+    color: #202643;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-bottom: 4px solid #C8CCC4;
+}
+
+.desplegable:hover {
+    background-color: black;
+    color: white;
+    border-bottom: 4px groove #C8CCC4;
+}
