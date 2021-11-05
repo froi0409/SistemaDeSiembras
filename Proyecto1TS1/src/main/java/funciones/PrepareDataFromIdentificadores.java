@@ -54,6 +54,11 @@ public class PrepareDataFromIdentificadores {
                 //Creamos el codigo si esta activado la generacion de codigo aleatorio
                 GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
                 String auxCod = genC.generarCodAleatorio(identificadores.get(0), identificadores.get(0).substring(0, 3), 1000, 9999);
+                
+                if(identificadores.get(i).equals("codigo_siembra")){
+                    request.getSession().setAttribute("codigo_siembra", auxCod);
+                }
+                
                 datos.add(auxCod);                
             }           
             ////PASSWORDS
