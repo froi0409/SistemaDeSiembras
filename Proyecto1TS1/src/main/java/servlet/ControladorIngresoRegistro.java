@@ -10,8 +10,11 @@ import funciones.PrepareDataFromIdentificadores;
 import funciones.RealizarIngresoParametros;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -67,7 +70,58 @@ public class ControladorIngresoRegistro extends HttpServlet {
             //Establecemos el código del usuario
             GetAttributeParameterRequest getAttribute = new GetAttributeParameterRequest(request);
             request.getSession().setAttribute("codigo_usuario", getAttribute.getAttributOrParameter("codigo_usuario"));
-        }       
+        }else if(identificadores.get(0).equalsIgnoreCase("SIEMBRA")){
+            //Declaramos los nombres de los atributos        
+            String parametrosAux;
+            
+            //Registramos correo
+            parametrosAux = "AGENDA,codigo_agenda,codigo_usuario,codigo_fecha,codigo_siembra,descripcion_agenda";
+            request.getSession().setAttribute("parametros", parametrosAux);
+                                   
+            Consultar consultarDB = new Consultar();
+            String queryObtenerConsulta = "     SELECT fecha, descripcion_accion\n" +
+                                        "	FROM DIA as dias\n" +
+                                        "	JOIN (SELECT nombre, tipo_planta, \n" +
+                                        "	duracion_dias, \n" +
+                                        "	descripcion_accion, \n" +
+                                        "	codigo_fase \n" +
+                                        "	FROM PLANTA AS A \n" +
+                                        "	JOIN CONSIDERACION AS B \n" +
+                                        "	ON tipo_planta = codigo_plantas && nombre = ?\n" +
+                                        "	) as listado\n" +
+                                        "	ON dias.fase = listado.codigo_fase\n" +
+                                        "	WHERE fecha BETWEEN ? AND DATE_ADD(?, INTERVAL duracion_dias DAY)\n" +
+                                        "	ORDER BY fecha ASC;";
+            
+            ArrayList<String> datosAuxQuery = new ArrayList();
+            //Establecemos el código del usuario
+            GetAttributeParameterRequest getAttribute = new GetAttributeParameterRequest(request);
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaAuxiliar = df.format(new Date());
+            //Necesita los siguientes datos
+            //nombre planta
+            //fecha
+            //fecha            
+            datosAuxQuery.add(getAttribute.getAttributOrParameter("nombre_planta"));
+            datosAuxQuery.add(fechaAuxiliar);
+            datosAuxQuery.add(fechaAuxiliar);
+            
+            List<ArrayList<String>> listaDatosConsideraciones = consultarDB.obtenerRegistros(queryObtenerConsulta, datosAuxQuery);
+            
+            //-- Query final para obtener la descripcion de las acciones necesarias en las fechas que cubren la duracion de la planta ? en la fecha ? fecha ?
+            //-- Necesitamos obtener para tener inserciones buenas
+            //-- codigo_fecha <-- fecha
+            //-- descripcion_agenda <-- descripcion_accion                 
+            for(int i = 0; i < listaDatosConsideraciones.size(); i++){
+                //Obtenemos del listado                    
+                //codigo_fecha    
+                //descripcion
+                request.getSession().setAttribute("codigo_fecha", listaDatosConsideraciones.get(i).get(0));
+                request.getSession().setAttribute("descripcion_agenda", listaDatosConsideraciones.get(i).get(1));   
+                //insertamos la consideracion 
+                realizarIngreso.realizarIngresoFromParametros(request);
+            }        
+        }
         
         
         //retornamos a otra pagina
