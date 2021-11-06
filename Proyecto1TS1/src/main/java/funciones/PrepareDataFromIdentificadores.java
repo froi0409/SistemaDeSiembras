@@ -52,14 +52,19 @@ public class PrepareDataFromIdentificadores {
                     identificadores.get(i).equals("codigo_agenda")                    
                     /*&& request.getSession().getAttribute("codigoAleatorio").equals("activado")*/){
                 //Creamos el codigo si esta activado la generacion de codigo aleatorio
-                GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
-                String auxCod = genC.generarCodAleatorio(identificadores.get(0), identificadores.get(0).substring(0, 3), 1000, 9999);
-                
-                if(identificadores.get(i).equals("codigo_siembra")){
-                    request.getSession().setAttribute("codigo_siembra", auxCod);
-                }
-                
-                datos.add(auxCod);                
+                String codSiembraAux = (String) request.getSession().getAttribute("codigo_siembra");
+                if(identificadores.get(i).equals("codigo_siembra") && codSiembraAux != null && codSiembraAux.equals("") == false){//tiene un dato en la session
+                    datos.add(codSiembraAux);
+                }else{
+                    GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
+                    String auxCod = genC.generarCodAleatorio(identificadores.get(0), identificadores.get(0).substring(0, 3), 1000, 9999);    
+                    datos.add(auxCod);   
+                    
+                    if(identificadores.get(i).equals("codigo_siembra")){//si es codigo siembra y se acaba de generar un codigo aleatorio
+                        request.getSession().setAttribute("codigo_siembra", auxCod);//lo establecemos en la session
+                    }
+                }               
+                          
             }           
             ////PASSWORDS
             else if(identificadores.get(i).equals("password")){   

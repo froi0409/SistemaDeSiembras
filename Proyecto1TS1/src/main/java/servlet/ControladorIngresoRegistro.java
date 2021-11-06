@@ -125,7 +125,11 @@ public class ControladorIngresoRegistro extends HttpServlet {
                 request.getSession().setAttribute("descripcion_agenda", listaDatosConsideraciones.get(i).get(1));   
                 //insertamos la consideracion 
                 realizarIngreso.realizarIngresoFromParametros(request);
-            }        
+            }       
+            
+            //Finalizamos el codigo_siembra
+            //le asignamos un valor "" para que las proximas siembras tengan un codigo nuevo
+            request.getSession().setAttribute("codigo_siembra", "");
         }
         
         
