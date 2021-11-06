@@ -71,8 +71,11 @@ public class ControladorIngresoRegistro extends HttpServlet {
             GetAttributeParameterRequest getAttribute = new GetAttributeParameterRequest(request);
             request.getSession().setAttribute("codigo_usuario", getAttribute.getAttributOrParameter("codigo_usuario"));
         }else if(identificadores.get(0).equalsIgnoreCase("SIEMBRA")){
+            
             //Declaramos los nombres de los atributos        
             String parametrosAux;
+            
+            System.out.println((String) request.getSession().getAttribute("codigo_siembra"));
             
             //Registramos correo
             parametrosAux = "AGENDA,codigo_agenda,codigo_usuario,codigo_fecha,codigo_siembra,descripcion_agenda";
@@ -102,6 +105,8 @@ public class ControladorIngresoRegistro extends HttpServlet {
             //nombre planta
             //fecha
             //fecha            
+            
+            System.out.println("NOMBRE: " + getAttribute.getAttributOrParameter("nombre_planta"));
             datosAuxQuery.add(getAttribute.getAttributOrParameter("nombre_planta"));
             datosAuxQuery.add(fechaAuxiliar);
             datosAuxQuery.add(fechaAuxiliar);

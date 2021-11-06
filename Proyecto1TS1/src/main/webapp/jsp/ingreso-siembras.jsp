@@ -4,6 +4,8 @@
     Author     : froi-pc
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="funciones.ObtenerListados"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,12 +19,14 @@
         
         <%
             //Declaramos los nombres de los atributos        
+            
             String parametros = "SIEMBRA,codigo_siembra,codigo_usuario,nombre_planta,fecha,estado,descripcion_siembra";
             ObtenerListados obtenerListados = new ObtenerListados();
             ArrayList<String> listadoPlantas = obtenerListados.getFrom("planta");
+            session.setAttribute("parametros", parametros);
         %>
         
-        <%@include file="../html/nav/cabecera-principal.html" %>
+        <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
             <%@include file="../html/planta/ingreso-siembras.html"%>
         </div>

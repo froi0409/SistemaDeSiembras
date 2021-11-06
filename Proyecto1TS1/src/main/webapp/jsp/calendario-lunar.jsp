@@ -51,9 +51,14 @@
                                                 <div align="center">
                                                     <%
                                                     String imagenFase = "../resources/Luna/";
+                                                    String mes = session.getAttribute("mes").toString();
+                                                    String año = session.getAttribute("año").toString();
+                                                  
                                                     int fase = listadoMes.get(i).get(j).getPorcentajeFase();
                                                     int numeroDia = listadoMes.get(i).get(j).getNumeroDia();
 
+                                                    String fecha = año + "-" + mes + "-" + numeroDia;
+                                                    
                                                     ObtenerImagen obtenerImagen = new ObtenerImagen();
                                                     imagenFase += obtenerImagen.obtenerNombre(fase);
 
@@ -63,7 +68,7 @@
                                                     
                                                     System.out.println("tamaño i: " + listadoMes.size() + "; tamaño j: " + listadoMes.get(i).size() + "; dia: " + listadoMes.get(i).get(j).getNumeroDia());
                                                     if(numeroDia > 0) {
-                                                        out.println("<h4>" + numeroDia + "</h4>");
+                                                        out.println("<a class=\"default\" href=\"agenda-dia-x.jsp?fecha=" + fecha + "\"><h4>" + numeroDia + "</h4></a>");
                                                     }
                                                     %>
                                                 </div>

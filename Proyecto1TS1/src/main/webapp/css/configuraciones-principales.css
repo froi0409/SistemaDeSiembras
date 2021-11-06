@@ -181,6 +181,10 @@ img {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-style: none;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
     border-bottom: 4px solid #C8CCC4;
 }
 

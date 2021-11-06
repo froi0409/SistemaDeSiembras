@@ -4,6 +4,9 @@
     Author     : hectoradolfo
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="funciones.ObtenerListados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,14 +19,14 @@
 
             //listados que necesitamos para desplegar la agenda del usuario
             ObtenerListados obtenerListados = new ObtenerListados();
-            ArrayList<String> agenda = obtenerListados.getFrom("agenda hoy", request);
+            List<ArrayList<String>> agenda = obtenerListados.getFrom("agenda hoy", request);
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
         <title>agenda</title>
     </head>
     <body>
-        <%@include file="../html/nav/cabecera-principal.html" %>
+        <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
             <div class="row g-3">
                 <div class="col-sm-3">
@@ -38,7 +41,6 @@
                                 <th>fecha</th>
                                 <th>siembra </th>
                                 <th>descripcion </th>
-                                <th> </th><!-- comment -->
                             </tr> <!--  el arrayList agenda que debe ser un objero y de tener los atributos
                                   codigo , fecha, siembra y descripcion 
                             -->
@@ -46,11 +48,21 @@
                                 for (int i = 0; i < agenda.size(); i++) {
                             %>
                             <tr>
-                                <td><%=agenda.get(i).getCodigo()%> </td>
-                                <td><%=agenda.get(i).getFecha()%> </td>
-                                <td><%=agenda.get(i).getSiembra()%> </td>
-                                <td><%=agenda.get(i).getDescripcion()%> </td>
-                                <td><a href="../jsp/contacto-correo.jsp?codigo_correo=<%=agenda.get(i).getCodigo()%>">Eliminar</a></td>
+                                <%
+                                for(int j = 0; j < agenda.get(0).size(); j++) {
+                                %>
+                                <td>
+                                    <%
+                                    if(agenda.get(i).get(j) == null) {
+                                        out.print("Ninguno");
+                                    } else {
+                                        out.print(agenda.get(i).get(j));
+                                    }
+                                    %>
+                                </td>
+                                <%
+                                }
+                                %>
                             </tr>
 
                             <%

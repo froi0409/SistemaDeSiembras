@@ -16,7 +16,7 @@
         
         <%
             //Declaramos los nombres de los atributos        
-            String parametros = "CONTACTO_TELEFONO,codigo_telefono,codigo_usuario,telefono";
+            String parametros = "CONTACTO_CORREO,codigo_correo,codigo_usuario,correo";
             session.setAttribute("parametros", parametros);
         %>
         
