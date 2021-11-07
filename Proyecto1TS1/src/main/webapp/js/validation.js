@@ -25,4 +25,8 @@ function confirmarPassword() {
 
 function abrirModal() {
     document.getElementById('miModal').style.display = 'inline';
+    document.getElementById('publicacion').focus();
+}
+
+function comentar() {
 }

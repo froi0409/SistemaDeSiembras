@@ -6,14 +6,14 @@
 .modal-contenido{
     background-color:#202643;
     width:600px;
-    height: 200px;
+    height: 400px;
     padding: 10px 20px;
     margin: 10% auto;
     position: relative;
 }
 .modal{
-    /*background-color: #817e82;*/
-    background-image: url(../../resources/img/carousel/publicar.jpg);
+    background-color: #817e82;
+    /*background-image: url(../../resources/img/carousel/publicar.jpg);*/
     position:fixed;
     top:0;
     right:0;
