@@ -1,0 +1,31 @@
+<br><br><br>
+
+<div class="container-sm">
+    <div class="row g-3">
+
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+            <div class="formulario h-100 p-5  border rounded-3">
+                <h3 style="color:#202643">Modificar Telefono</h3>
+                <br>
+                <form class="row g-3 needs-validation" action="../ControladorActualizarRegistro" method="POST">
+                    <div class="form-floating">
+                        <input type="text" class="form-control inputPrueba" id="telefono_anterior" name="telefono"
+                               placeholder="Telefono" required />
+                        <label for="telefono" style="color:#97908c">Telefono A Eliminar <span style="color:red">*</span></label>
+                        <div class="invalid-tooltip" oninput="telefono">
+                            Please choose a unique and valid number phone.
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn botonRegistro" type="submit">Eliminar Telefono</button>                        
+                    </div>
+                    <!--agregamos el ngif para una sentencia de que aparezca un mensaje cuando no estan lleno los input-->
+                </form>                 
+            </div>
+        </div>
+    </div>
+</div>

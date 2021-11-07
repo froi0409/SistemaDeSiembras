@@ -198,7 +198,6 @@ CREATE TABLE IF NOT EXISTS `SOWING_MOON`.`COMENTARIO` (
   `codigo_usuario` VARCHAR(40) NOT NULL,
   `comentario` VARCHAR(700) NOT NULL,
   `fecha` DATE NOT NULL,
-  `codigo_publicacion` INT NOT NULL,
   PRIMARY KEY (`codigo_comentario`),
   INDEX `fk_CONTACTO_TELEFONO_USUARIO1_idx` (`codigo_usuario` ASC) VISIBLE,
   INDEX `fk_COMENTARIO_PUBLICACION1_idx` (`codigo_publicacion` ASC) VISIBLE,
