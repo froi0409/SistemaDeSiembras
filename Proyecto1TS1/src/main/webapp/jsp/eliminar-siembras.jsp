@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
-        <title>Nuevo Tipo de Planta</title>
+        <title>Eliminar Planta</title>
     </head>
     <body background="../resources/img/create_user.jpg">
         
@@ -28,7 +28,7 @@
         
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
-            <%@include file="../html/planta/ingreso-siembras.html"%>
+            <%@include file="../html/planta/eliminar-siembras.html"%>
         </div>
         
     </body>

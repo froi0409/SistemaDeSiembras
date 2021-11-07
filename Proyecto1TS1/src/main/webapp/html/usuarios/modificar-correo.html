@@ -9,11 +9,20 @@
         </div>
         <div class="col-sm-6">
             <div class="formulario h-100 p-5  border rounded-3">
-                <h3 style="color:#202643">Crear Nuevo Correo</h3>
+                <h3 style="color:#202643">Modificar Correo</h3>
                 <h6 style="color:#202643">Ingresa la nueva direccion de Correo Electronico</h6><br>
-                <form class="row g-3 needs-validation" action="../ControladorIngresoRegistro" method="POST">
+                <form class="row g-3 needs-validation" action="../ControladorActualizarRegistro" method="POST">
                     <div class="form-floating">
                         <input type="email" class="form-control inputPrueba" id="correo" name="correo"
+                               placeholder="Correo Electronico Antiguo" required />
+                        <label for="correo" style="color:#97908c">Correo Electronico Antiguo <span style="color:red">*</span></label>
+                        <div class="invalid-tooltip" oninput="correo">
+                            Please choose a unique and valid email.
+                        </div>
+                    </div>
+                    
+                    <div class="form-floating">
+                        <input type="email" class="form-control inputPrueba" id="correo_nuevo" name="correo2"
                                placeholder="Correo Electronico Nuevo" required />
                         <label for="correo" style="color:#97908c">Correo Electronico Nuevo <span style="color:red">*</span></label>
                         <div class="invalid-tooltip" oninput="correo">
@@ -23,12 +32,8 @@
                     
 
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button class="btn botonRegistro" type="submit">Agregar Nuevo Correo</button>
+                        <button class="btn botonRegistro" type="submit">Modificar Correo</button>
                     </div>
-                    <ul>                            
-                        <li><a href = "../../jsp/modificar-correo.jsp" >Modificar Correo</a></li>
-                        <li><a href = "../../jsp/eliminar-correo.jsp" >Eliminar Correo</a></li>
-                    </ul>
                     <!--agregamos el ngif para una sentencia de que aparezca un mensaje cuando no estan lleno los input-->
 
                 </form>
