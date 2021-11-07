@@ -41,18 +41,17 @@ public class ControladorActualizarRegistro extends HttpServlet {
         GetAttributeParameterRequest gapr = new GetAttributeParameterRequest(request);
         //agregamos los identificadores
         //obtenemos la tabla
-        String tabla = gapr.getAttributOrParameter("tabla"); 
-        //obtenemos el atributo a modificar
-        String atributo = gapr.getAttributOrParameter("atributo");
-        //obtenemos el valor
-        String valorAtributo = gapr.getAttributOrParameter(atributo);
-        //nuevo valor
-        ArrayList<String> identificador = new ArrayList<String>();
-        //Identificador restriccion
-        String restriccion = gapr.getAttributOrParameter("restriccion");  
-        String datoRestriccion = gapr.getAttributOrParameter(restriccion);
-        //Agregamos a los identificadores
-        identificador.add(atributo);
+        
+        
+        String tabla = (String) request.getSession().getAttribute("tabla");
+        String parametrosModificar =  (String) request.getSession().getAttribute("parametrosModificar");
+        String restriccion =  (String) request.getSession().getAttribute("restriccion");
+        String valorRestriccion =  (String) request.getSession().getAttribute("valorRestriccion");
+        
+        //Agregamos los nombres de los identificadores en el listado identificador
+        ArrayList<String> identificador = new ArrayList(Arrays.asList(parametrosModificar.split(",")));
+               
+        //Creamos un listado que contendra los valores obtenidos para cada uno de los identificadores, si es una password se debe de encriptar
         ArrayList<String> dato = new ArrayList<String>();
         //obtenemos los datos
         for(int i = 0; i < identificador.size(); i++){
@@ -68,7 +67,7 @@ public class ControladorActualizarRegistro extends HttpServlet {
                  dato.add(gapr.getAttributOrParameter(identificador.get(i)));
             }
         }   
-        dato.add(gapr.getAttributOrParameter(restriccion));//agregamos el codigo al final para agregar el valor de la restriccion
+        dato.add(valorRestriccion);//agregamos el codigo al final para agregar el valor de la restriccion
         //actualizamos
         Actualizar act = new Actualizar(tabla, //tabla
             new ArrayList<String>(identificador),//valores a modificar
@@ -78,9 +77,30 @@ public class ControladorActualizarRegistro extends HttpServlet {
         request.getSession().setAttribute("mensaje", "El registro se hizo con satisfaccion");
         
         //redirigimos       
-        String direccion = "jsp/blogs.jsp";
-        response.sendRedirect(direccion);
-        
+        String direccion = "";
+        String usuarioRol = (String) request.getSession().getAttribute("rol");
+        switch(usuarioRol){
+            case "":                 //no encuentra al usuario           
+                direccion = "jsp/iniciar-sesion.jsp";
+                response.sendRedirect(direccion);
+                break;
+            case "usuario":
+                //Establecemos el código del usuario                
+                direccion = "jsp/blogs.jsp";
+                response.sendRedirect(direccion);
+                break;
+            case "admin":
+                //Establecemos el código del usuario                
+                direccion = "jsp/inicio-administrador.jsp";
+                response.sendRedirect(direccion);
+                break;
+            default://Usuario correcto
+                
+                //Establecemos el código del usuario                
+                direccion = "jsp/blogs.jsp";
+                response.sendRedirect(direccion);
+                break;
+        }        
        
     }
 

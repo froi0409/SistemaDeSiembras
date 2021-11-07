@@ -137,12 +137,30 @@ public class ControladorIngresoRegistro extends HttpServlet {
         request.getSession().setAttribute("codigoAleatorio", "activado");//volvemos a activar la generacion del codigo aleatorio
         request.getSession().setAttribute("fechaSistema", "activado");//volvemos a activar la generacion del codigo aleatorio
        
-        //if(((String)request.getSession().getAttribute("redireccionarRegistro")) == null || ((String)request.getSession().getAttribute("redireccionarRegistro")).length() == 0){
-            String direccion = "jsp/blogs.jsp";
-            response.sendRedirect(direccion);
-        //}else{
-        //    request.getSession().setAttribute("redireccionarRegistro", "");
-        //}
+        String direccion = "";
+        String usuarioRol = (String) request.getSession().getAttribute("rol");
+        switch(usuarioRol){
+            case "":                 //no encuentra al usuario           
+                direccion = "jsp/iniciar-sesion.jsp";
+                response.sendRedirect(direccion);
+                break;
+            case "usuario":
+                //Establecemos el código del usuario                
+                direccion = "jsp/blogs.jsp";
+                response.sendRedirect(direccion);
+                break;
+            case "admin":
+                //Establecemos el código del usuario                
+                direccion = "jsp/inicio-administrador.jsp";
+                response.sendRedirect(direccion);
+                break;
+            default://Usuario correcto
+                
+                //Establecemos el código del usuario                
+                direccion = "jsp/blogs.jsp";
+                response.sendRedirect(direccion);
+                break;
+        }
     }
     
 
