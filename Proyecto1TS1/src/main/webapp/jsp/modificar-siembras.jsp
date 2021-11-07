@@ -30,6 +30,7 @@
         
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/planta/modificar-siembras.html"%>
         </div>
         

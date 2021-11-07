@@ -10,12 +10,17 @@
         
         <%
             //Declaramos los nombres de los atributos        
-            String parametros = "CONTACTO_TELEFONO,codigo_telefono,codigo_usuario,telefono";
-            session.setAttribute("parametros", parametros);
+            //String parametros = "CONTACTO_TELEFONO,codigo_telefono,codigo_usuario,telefono";
+            //session.setAttribute("parametros", parametros);
+            session.setAttribute("tabla", "CONTACTO_CORREO");
+            session.setAttribute("parametrosModificar", "telefono");
+            session.setAttribute("restriccion", "codigo_telefono");
+            session.setAttribute("valorRestriccion", "CON4642");
         %>
         
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/usuarios/modificar-correo.html"%>
         </div>
         

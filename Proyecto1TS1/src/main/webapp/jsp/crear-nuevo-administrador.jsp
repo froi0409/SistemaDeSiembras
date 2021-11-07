@@ -22,6 +22,7 @@
         
         <%@include file="../html/nav/cabecera-administradores.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/administrador/nuevo-administrador.html"%>
         </div>
         

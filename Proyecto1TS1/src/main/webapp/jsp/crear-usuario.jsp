@@ -21,6 +21,7 @@
         
         <%@include file="../html/nav/cabecera-no-sesion.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/usuarios/crear-usuario.html"%>
         </div>
         

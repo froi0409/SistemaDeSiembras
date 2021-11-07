@@ -18,6 +18,7 @@
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
             <%@include file="../html/blogs/plublicacion.html"%>
+            <%@include file="mensaje.jsp" %>
         </div>
 
         <!--  aqui debe de ir el ciclo pra obtener todas las publicaciones  creadas y oque estan en la db

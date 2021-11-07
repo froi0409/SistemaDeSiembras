@@ -22,6 +22,7 @@
         
         <%@include file="../html/nav/cabecera-principal.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/planta/nueva-planta.html"%>
         </div>
         

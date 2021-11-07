@@ -28,6 +28,7 @@
         
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/usuarios/eliminar-telefono.html"%>
         </div>
         

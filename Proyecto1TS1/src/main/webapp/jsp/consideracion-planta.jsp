@@ -4,6 +4,8 @@
     Author     : hectoradolfo
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="funciones.ObtenerListados"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +29,7 @@
 
         <%@include file="../html/nav/cabecera-principal.html" %>
         <div class="main">
-
+            <%@include file="mensaje.jsp" %>
             <div class="container-sm">
                 <div class="row g-3">
 

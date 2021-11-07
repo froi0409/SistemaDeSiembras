@@ -29,6 +29,7 @@
         %>
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <div class="row g-3">
                 <div class="col-sm-3">
 

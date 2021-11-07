@@ -69,6 +69,7 @@ public class ControladorLogin extends HttpServlet {
         switch(usuarioRol){
             case "":                 //no encuentra al usuario           
                 direccion = "jsp/iniciar-sesion.jsp";
+                request.getSession().setAttribute("mensaje", "Usuario o Contraseña Incorrecta, Revise sus Credenciales");
                 response.sendRedirect(direccion);
                 break;
             case "usuario":

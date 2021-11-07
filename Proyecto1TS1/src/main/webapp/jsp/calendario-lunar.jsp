@@ -27,7 +27,7 @@
         
         <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
-            
+            <%@include file="mensaje.jsp" %>
             <div class="row">
                 <div class="col-2">
                     <!-- columna vacía -->

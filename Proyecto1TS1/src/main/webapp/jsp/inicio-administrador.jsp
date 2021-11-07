@@ -16,6 +16,7 @@
     <body>
         <%@include file="../html/nav/cabecera-administradores.html" %>
         <div class="main">
+            <%@include file="mensaje.jsp" %>
             <%@include file="../html/blogs/plublicacion.html"%>
         </div>
        
