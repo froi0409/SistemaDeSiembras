@@ -60,7 +60,7 @@ public class ControladorLogin extends HttpServlet {
         }  
         request.getSession().setAttribute("rol", usuarioRol);
         System.out.println(usuarioRol);
-        request.getSession().setAttribute("codigo", codigo);
+        request.getSession().setAttribute("codigo_usuario", codigo);
         request.getSession().setAttribute("mensaje", "Bienvenido");
         request.getSession().setAttribute("fecha_sistema", "2021-10-18"); 
         request.getSession().setAttribute("hora_sistema", "12:00:00"); 
