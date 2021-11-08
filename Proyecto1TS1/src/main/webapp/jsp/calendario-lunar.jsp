@@ -16,7 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
         <link href="../css/calendario.css" rel="stylesheet" type="text/css"/>
-        <title>Nueva Agenda</title>
+        <title>Calendario Lunar</title>
     </head>
     <body>
         

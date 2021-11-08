@@ -10,8 +10,10 @@
         
         <%
             //Declaramos los nombres de los atributos        
-            String parametros = "CONTACTO_TELEFONO,codigo_telefono,codigo_usuario,telefono";
-            session.setAttribute("parametros", parametros);
+            session.setAttribute("tabla", "AGENDA");
+            session.setAttribute("parametrosModificar", "descripcion_agenda");
+            session.setAttribute("restriccion", "codigo_agenda");
+            session.setAttribute("valorRestriccion", request.getParameter("codigoAgenda"));
         %>
         
         <%@include file="../html/nav/cabecera-usuario.html" %>

@@ -9,16 +9,9 @@
         </div>
         <div class="col-sm-6">
             <div class="formulario h-100 p-5  border rounded-3">
-                <h3 style="color:#202643">Modificar Agenda</h3>
-                <h6 style="color:#202643">Modifique los datos de la Agenda</h6><br>
-                <form class="row g-3 needs-validation" action="../ControladorActualizarAgenda" method="POST">
-
-                    <div class="form-floating">
-                        <input type="date" class="form-control" id="codigo_fecha" name="codigo_fecha" required
-                               />
-                        <label for="birth" style="color:#97908c">Fecha <span style="color:red">*</span></label>
-                    </div>
-                    
+                <h3 style="color:#202643">Modificar Agenda: <%=request.getParameter("codigoAgenda") %></h3>
+                <h6 style="color:#202643">Modifique la descripcion de la agenda</h6><br>
+                <form class="row g-3 needs-validation" action="../ControladorActualizarRegistro" method="POST">
                     <div class="form-floating">
                         <input type="text" class="form-control inputPrueba" id="descripcion_agenda" name="descripcion_agenda"
                                placeholder="Descripcion Agenda" required />

@@ -4,28 +4,25 @@
     Author     : hectoradolfo
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="funciones.ObtenerListados"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <%
-            //Declaramos los nombres de los atributos
-            String parametros
-                    = "contacto correo";
-            session.setAttribute("parametros", parametros);
 
-            //listados que necesitamos para desplegar los contactos del usuario
-            ObtenerListados obtenerListados = new ObtenerListados();
-            ArrayList<String> contactoCorreo = obtenerListados.getFrom("contacto_correo", request);
-        %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
-        <title>contacto correo</title>
+        <title>Correos</title>
     </head>
     <body>
 
-        <%@include file="../html/nav/cabecera-principal.html" %>
+        <%
+            ObtenerListados obtenerListados = new ObtenerListados();
+            List<ArrayList<String>> listado = obtenerListados.getFrom("contacto correo", request);
+        %>
+        <%@include file="../html/nav/cabecera-usuario.html" %>
         <div class="main">
             <%@include file="mensaje.jsp" %>
             <div class="row g-3">
@@ -34,7 +31,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="formulario h-100 p-5  border rounded-3">
-                        <h1>Contactos de correo electronico </h1>
+                        <a href="crear-nuevo-correo.jsp" class="btn botonRegistro">Nuevo Correo</a>
+                        <br><br>
+                        <h3>Listado de Correos</h3>
                         <table class="table table-dark table-striped">
                             <tr>
                                 <th>Codigo</th>
@@ -44,12 +43,17 @@
                                   codigo_correo y correo
                             -->
                             <%
-                                for (int i = 0; i < contactoCorreo.size(); i++) {
+                                for (int i = 0; i < listado.size(); i++) {
                             %>
                             <tr>
-                                <td><%=contactoCorreo.get(i).getCodigoCorreo()%> </td>
-                                <td><%=contactoCorreo.get(i).getCorreo()%> </td>
-                                <td><a href="../jsp/contacto-correo.jsp?codigo_correo=<%=contactoCorreo.get(i).getCodigoCorreo()%>">Eliminar</a></td>
+                                <%
+                                for(int j = 0; j < listado.get(0).size(); j++) {
+                                %>
+                                <td><%=listado.get(i).get(j)%></td>
+                                <%
+                                }
+                                %>
+                                <td><a class="btn btn-light" href="modificar-correo.jsp?codigoCorreo=<%=listado.get(i).get(0) %>">Modificar</a></td>
                             </tr>
 
                             <%

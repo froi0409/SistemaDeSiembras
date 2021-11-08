@@ -126,11 +126,11 @@ public class ObtenerListados {
                     datosWhere.add(usuario);//asignamos dato
                 break;
             case "contacto correo":
-                    query = "SELECT codigo_correo, telefono FROM CONTACTO_CORREO WHERE codigo_usuario = ?;";    
+                    query = "SELECT codigo_correo, correo FROM CONTACTO_CORREO WHERE codigo_usuario = ?;";    
                     datosWhere.add(usuario);//asignamos dato
                 break;
             case "siembras":
-                    query = "SELECT codigo_siembra, nombre_planta, fecha, estado FROM SIEMBRA WHERE codigo_usuario = ?;";
+                    query = "SELECT codigo_siembra, nombre_planta, fecha, descripcion_siembra FROM SIEMBRA WHERE codigo_usuario = ?;";
                     datosWhere.add(usuario);//asignamos dato
                 break;
             case "agenda hoy":

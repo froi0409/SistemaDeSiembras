@@ -14,8 +14,8 @@
             //session.setAttribute("parametros", parametros);
             session.setAttribute("tabla", "CONTACTO_CORREO");
             session.setAttribute("parametrosModificar", "correo");
-            session.setAttribute("restriccion", "correo");
-            session.setAttribute("valorRestriccion", "correo");
+            session.setAttribute("restriccion", "codigo_correo");
+            session.setAttribute("valorRestriccion", request.getParameter("codigoCorreo"));
         %>
         
         <%@include file="../html/nav/cabecera-usuario.html" %>

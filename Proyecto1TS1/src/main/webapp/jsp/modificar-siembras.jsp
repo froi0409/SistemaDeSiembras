@@ -19,13 +19,10 @@
         
         <%
             //Declaramos los nombres de los atributos        
-            String parametros = "SIEMBRA,codigo_siembra,codigo_usuario,nombre_planta,fecha,estado,descripcion_siembra";
-            ObtenerListados obtenerListados = new ObtenerListados();
-            ArrayList<String> listadoPlantas = new ArrayList();
-            try{    
-                listadoPlantas = obtenerListados.getFrom("planta");
-            }catch(Exception ex){}
-            session.setAttribute("parametros", parametros);
+            session.setAttribute("tabla", "SIEMBRA");
+            session.setAttribute("parametrosModificar", "descripcion_siembra");
+            session.setAttribute("restriccion", "codigo_siembra");
+            session.setAttribute("valorRestriccion", request.getParameter("codigoSiembra"));
         %>
         
         <%@include file="../html/nav/cabecera-usuario.html" %>
