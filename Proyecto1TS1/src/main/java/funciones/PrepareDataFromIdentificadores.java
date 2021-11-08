@@ -5,7 +5,9 @@
 package funciones;
 
 import encriptador.Encriptar;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -46,12 +48,25 @@ public class PrepareDataFromIdentificadores {
                     identificadores.get(i).equals("codigo_comentario") ||
                     identificadores.get(i).equals("codigo_like") ||
                     identificadores.get(i).equals("codigo_telefono") ||
-                    identificadores.get(i).equals("codigo_correo")                    
+                    identificadores.get(i).equals("codigo_correo") ||
+                    identificadores.get(i).equals("codigo_agenda")                    
                     /*&& request.getSession().getAttribute("codigoAleatorio").equals("activado")*/){
                 //Creamos el codigo si esta activado la generacion de codigo aleatorio
-                GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
-                String auxCod = genC.generarCodAleatorio(identificadores.get(0), identificadores.get(0).substring(0, 3), 1000, 9999);
-                datos.add(auxCod);                
+                String codSiembraAux = (String) request.getSession().getAttribute("codigo_siembra");
+                String codPublicacionAux = request.getParameter("codigo_publicacion");
+                if(identificadores.get(i).equals("codigo_siembra") && codSiembraAux != null && codSiembraAux.equals("") == false){//tiene un dato en la session
+                    datos.add(codSiembraAux);
+                }else if(identificadores.get(i).equals("codigo_publicacion") && codPublicacionAux != null && codPublicacionAux.equals("") == false){//tiene un dato en la session
+                    datos.add(codPublicacionAux);
+                }else{
+                    GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
+                    String auxCod = genC.generarCodAleatorio(identificadores.get(0), identificadores.get(0).substring(0, 3), 1000, 9999);    
+                    datos.add(auxCod);   
+                    
+                    if(identificadores.get(i).equals("codigo_siembra")){//si es codigo siembra y se acaba de generar un codigo aleatorio
+                        request.getSession().setAttribute("codigo_siembra", auxCod);//lo establecemos en la session
+                    }
+                }      
             }           
             ////PASSWORDS
             else if(identificadores.get(i).equals("password")){   
@@ -62,13 +77,16 @@ public class PrepareDataFromIdentificadores {
                 datos.add(auxEn);                
             }
             //FECHAS
-            /*else if(identificadores.get(i).equals("birth") ||
-                    identificadores.get(i).equals("fecha") &&
-                    request.getSession().getAttribute("fechaSistema").equals("activado")){
+            else if(identificadores.get(i).equals("fecha") /*&&
+                    request.getSession().getAttribute("fechaSistema").equals("activado")*/){
                 //Si son fechas y la fecha del sistema esta activado
-                //Agregamos la fecha del sistema                
-                datos.add((String)request.getSession().getAttribute("fecha_sistema"));            
-            }*/
+                //Agregamos la fecha del sistema  
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String fechaAuxiliar = df.format(new Date());
+                
+                //datos.add((String)request.getSession().getAttribute("fecha_sistema"));     
+                datos.add(fechaAuxiliar);
+            }
             //DATOS NORMALES
             else{//si es un dato ordinario (a recibir del request)
                  //datos.add(request.getParameter(identificadores.get(i)));

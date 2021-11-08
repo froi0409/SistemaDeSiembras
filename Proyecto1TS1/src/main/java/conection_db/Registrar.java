@@ -63,6 +63,7 @@ public class Registrar {
                 //queryDato.get(i) 
                 CrearDeclaracionPreparada cdp = new CrearDeclaracionPreparada();
                 cdp.crearDeclaracionPreparada(queryDato.get(i), query.get(i)).executeUpdate();
+                System.out.println(query.get(i));
             } catch (SQLException ex) {
                 System.out.println("error: "+ ex.getMessage());
             }

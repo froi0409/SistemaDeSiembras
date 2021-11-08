@@ -1,0 +1,28 @@
+td {
+    transition: 1s;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #f1f0eb;
+}
+
+td:hover {
+    background-position: center center;
+    background: radial-gradient(circle, yellow, #f1f0eb);
+}
+
+/*CLASES*/
+.border-image {
+    /*
+    border: 2px solid black;
+    border-radius: 100%;
+    */
+    border: 2px solid black;
+    height: 100px;
+    width: 100px;
+    -webkit-border-radius: 100px 100px 100px 100px;
+    border-radius: 100px 100px 100px 100px;
+    overflow: hidden;
+    background-color: black;
+}

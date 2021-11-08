@@ -1,0 +1,36 @@
+
+<br><br><br>
+
+<div class="container-sm">
+    <div class="row g-3">
+
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+            <div class="formulario h-100 p-5  border rounded-3">
+                <h3 style="color:#202643">Modificar Agenda: <%=request.getParameter("codigoAgenda") %></h3>
+                <h6 style="color:#202643">Modifique la descripcion de la agenda</h6><br>
+                <form class="row g-3 needs-validation" action="../ControladorActualizarRegistro" method="POST">
+                    <div class="form-floating">
+                        <input type="text" class="form-control inputPrueba" id="descripcion_agenda" name="descripcion_agenda"
+                               placeholder="Descripcion Agenda" required />
+                        <label for="telefono" style="color:#97908c">Nueva Descripcion<span style="color:red">*</span></label>
+                        <div class="invalid-tooltip" oninput="descripcion_agenda">
+                            Please choose a description.
+                        </div>
+                    </div>
+                    
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn botonRegistro" type="submit">Modificar Agenda</button>
+                    </div>
+                    <!--agregamos el ngif para una sentencia de que aparezca un mensaje cuando no estan lleno los input-->
+
+                </form>
+                
+                 
+            </div>
+        </div>
+    </div>
+</div>

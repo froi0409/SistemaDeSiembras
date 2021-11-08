@@ -1,4 +1,4 @@
-/* 
+/* autor: @adolfosonchiché
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
@@ -25,4 +25,8 @@ function confirmarPassword() {
 
 function abrirModal() {
     document.getElementById('miModal').style.display = 'inline';
+    document.getElementById('publicacion').focus();
+}
+
+function comentar() {
 }

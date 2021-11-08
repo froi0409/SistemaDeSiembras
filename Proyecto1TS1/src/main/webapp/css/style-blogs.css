@@ -1,32 +1,63 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 14 oct. 2021, 23:46:49
-    Author     : hectoradolfosc
-*/
-
 
 .modal-contenido{
-  background-color:aqua;
-  width:300px;
-  padding: 10px 20px;
-  margin: 20% auto;
-  position: relative;
+    background-color: #f1f0eb;
+    border: 0;
+    padding: 10px 20px;
+    margin: 10% auto;
+    position: relative;
+    opacity: 1;
 }
 .modal{
-  background-color: rgba(0,0,0,.8);
-  position:fixed;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  opacity:0;
-  pointer-events:none;
-  transition: all 1s;
+    background-color: transparent;
+    /*background-image: url(../../resources/img/carousel/publicar.jpg);*/
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    opacity:0;
+    pointer-events:none;
+    transition: all 1s;
 }
 #miModal:target{
-  opacity:1;
-  pointer-events:auto;
+    opacity:1;
+    pointer-events:auto;
+}
+
+body {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/fondo.jpg);
+    background-color: #C8CCC4;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contenedor-input {
+    background-color: #f1f0eb;
+    border: 0;
+    opacity: 0.8;
+    padding: 20px;
+    width: 400px;
+    justify-content: center;
+    text-align: center;
+    /* IMPORTANTE */
+}
+
+
+.div {
+    margin: 1rem;
+}
+
+
+
+
+.button-publicar {
+    background: #154e68;
+    width: 115px;
+    height: 35px;
+    font-size: 18px;
+    text-align: center;
 }

@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-
-        <!-- Button trigger modal -->
-        <div class="div">
-        <div class="contenedor-input">
-            <a href="#miModal"><input type='text' id='in1' placeholder="que estas pensando?" onclick="abrirModal();" ></a>
-        </div>
-            </div>
-        <div id="miModal" class="modal">
-            <div class="modal-contenido">
-                <button><a href="#">X</a></button>
-                <form id="fomr1" name="fomr1" action="http://localhost:8080/Proyecto1TS1/jsp/blogs.jsp" method="post" >
-                    <h2>Crear publicacion</h2>
-                    <textarea placeholder="escribe su comentario" id="publicacion" name="publicacion"  rows="3" cols="50" autofocus></textarea>
-                    <button name="publicar" type="submit" class="button-publicar">Publicar</button>
-                </form>
-            </div>  
-        </div>
+<!-- Button trigger modal -->
+<div class="div">
+    <div class="contenedor-input">
+        <a href="#miModal"><input type='text' id='in1' placeholder="crear una publicacion" onclick="abrirModal();" ></a>
+    </div>
+</div>
+<div id="miModal" class="modal">
+    <div class="modal-contenido">
+        
+            <button><a href="#">X</a></button>
+        <center>
+       
+        <form id="fomr1" name="fomr1" action="http://localhost:8080/Proyecto1TS1/jsp/blogs.jsp" method="post" >
+            <h5>Crear publicacion</h5>
+            <textarea placeholder="que estas pensando?" id="publicacion" name="publicacion"  rows="3" cols="30" autofocus></textarea>
+            <button name="publicar" type="submit" class="button-publicar">Publicar</button>
+        </form>
+        </center>
+    </div>  
+</div>
 

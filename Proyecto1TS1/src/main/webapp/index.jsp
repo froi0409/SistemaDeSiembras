@@ -9,12 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <%@include file="html/importaciones/importaciones-index.html" %>
         <!-- Compiled and minified Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <title>SowingMoon - Calendario Lunar</title>
     </head>
-    <body>        
+    <body>  
+        <%
+            session.setAttribute("mes", "11");
+            session.setAttribute("año", "2021");
+        %>
         <%@include file="html/nav/cabecera-principal.html"%>
         <div class="main-index">
             <%@include file="html/carousel-index.html" %>

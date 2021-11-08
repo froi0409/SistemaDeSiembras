@@ -60,7 +60,7 @@ public class ControladorLogin extends HttpServlet {
         }  
         request.getSession().setAttribute("rol", usuarioRol);
         System.out.println(usuarioRol);
-        request.getSession().setAttribute("codigo", codigo);
+        request.getSession().setAttribute("codigo_usuario", codigo);
         request.getSession().setAttribute("mensaje", "Bienvenido");
         request.getSession().setAttribute("fecha_sistema", "2021-10-18"); 
         request.getSession().setAttribute("hora_sistema", "12:00:00"); 
@@ -69,9 +69,28 @@ public class ControladorLogin extends HttpServlet {
         switch(usuarioRol){
             case "":                 //no encuentra al usuario           
                 direccion = "jsp/iniciar-sesion.jsp";
+                request.getSession().setAttribute("mensaje", "Usuario o Contraseña Incorrecta, Revise sus Credenciales");
                 response.sendRedirect(direccion);
                 break;
-            default:
+            case "usuario":
+                //Establecemos el código del usuario
+                request.getSession().setAttribute("codigo_usuario", codigo);
+                
+                direccion = "jsp/blogs.jsp";
+                response.sendRedirect(direccion);
+                break;
+            case "admin":
+                //Establecemos el código del usuario
+                request.getSession().setAttribute("codigo_usuario", codigo);
+                
+                direccion = "jsp/inicio-administrador.jsp";
+                response.sendRedirect(direccion);
+                break;
+            default://Usuario correcto
+                
+                //Establecemos el código del usuario
+                request.getSession().setAttribute("codigo_usuario", codigo);
+                
                 direccion = "jsp/blogs.jsp";
                 response.sendRedirect(direccion);
                 break;

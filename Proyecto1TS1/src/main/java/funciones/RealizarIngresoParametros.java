@@ -35,7 +35,7 @@ public class RealizarIngresoParametros {
         
         //le damos valor al objeto de registro utilizando el listado de identificadores y datos
         registro = new RealizarRegistroTabla(identificadores, datos);
-        registro.realizarRegistro();//realizamos el registro
+        registro.modificarRegistro();//realizamos el registro
         
         //////////////////////////////////////////////PARTE COMPROBACION         
          //Retornamos otra pagina dependiendo del resultado

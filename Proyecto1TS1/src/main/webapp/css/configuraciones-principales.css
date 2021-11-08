@@ -9,6 +9,10 @@ body {
     background-attachment: fixed;
 }
 
+p {
+    text-align: justify;
+}
+
 ul {
     list-style-type: none;
     margin: 0; 
@@ -110,6 +114,12 @@ img {
     border: 0;
 }
 
+.solidForm {
+    background-color: #f1f0eb;
+
+    border: 0;
+}
+
 /*botonPassword*/
 .botonPass{
     background-color: white;
@@ -134,4 +144,62 @@ img {
 @font-face {
     font-family: texto-plano;
     src: url(../resources/fonts/Rubik-Regular.ttf);
+}
+
+/*fondo para crear planta*/
+.body-new-planta {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/new-planta.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*fondo para crear nueva consideracion para una planta*/
+.body-consideracion-planta {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/consideracion.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*fondo para crear nuevo admin*/
+.body-admin-crear {
+    margin: 0;
+    padding:0;
+    background-image: url(../resources/img/admin.jpg);
+    background-color: #202643;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*Configuraciones para el select*/
+.desplegable {
+    float: left;
+    transition: 1s;
+    display: block;
+    background-color: #C8CCC4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-style: none;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 4px solid #C8CCC4;
+}
+
+.desplegable:hover {
+    background-color: black;
+    color: white;
+    border-bottom: 4px groove #C8CCC4;
 }

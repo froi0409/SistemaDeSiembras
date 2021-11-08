@@ -82,6 +82,41 @@ public class Consultar {
         return resultadoTab;
     }
     
+    /**
+     * Consulta si existe dicho registro en la tabla enviada
+     * donde el atributo enviado sea igual al dato enviado
+     * Si existe se envia unicamente la primera columna hallada
+     * @param tabla
+     * @param atributo
+     * @param dato
+     * @return 
+     */
+       
+    public ArrayList<String> obtenerListadoSimpleRegistros(String queryAux, ArrayList<String> dato){
+        ArrayList<String> resultadoColumna = new ArrayList();
+        try {            
+            System.out.println(queryAux);
+            ResultSet rs = crearResultSet(dato, queryAux);
+            
+            ResultSetMetaData rsmd = rs.getMetaData();//Obtenemos la metadata para las columnas                
+            while(rs.next()){//si hay otra fila
+                //ArrayList<String> auxFila = new ArrayList<String>();//agregamos un axiliar para las filas
+                //for(int i = 1; i < rsmd.getColumnCount() + 1; i++){
+                    //obtenemos todos los atributos
+                    //auxFila.add(rs.getString(i));//obtenemos el atributo en cola
+                    resultadoColumna.add(rs.getString(1));
+                //}
+                //resultadoTab.add(new ArrayList<String>(auxFila));//agregamos la fila obtenida a la tabla                 
+                //auxFila.clear(); //limpiamos el auxiliar
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            System.out.println("ERROR AL OBTENER LA TABLA: "+ex);
+        } 
+        
+        return resultadoColumna;
+    }
+    
     
     /**
      * Obtenemos el resultSet de todos los registros inidicados 
