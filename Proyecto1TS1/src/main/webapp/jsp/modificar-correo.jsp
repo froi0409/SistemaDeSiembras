@@ -13,9 +13,9 @@
             //String parametros = "CONTACTO_TELEFONO,codigo_telefono,codigo_usuario,telefono";
             //session.setAttribute("parametros", parametros);
             session.setAttribute("tabla", "CONTACTO_CORREO");
-            session.setAttribute("parametrosModificar", "telefono");
-            session.setAttribute("restriccion", "codigo_telefono");
-            session.setAttribute("valorRestriccion", "CON4642");
+            session.setAttribute("parametrosModificar", "correo");
+            session.setAttribute("restriccion", "correo");
+            session.setAttribute("valorRestriccion", "correo");
         %>
         
         <%@include file="../html/nav/cabecera-usuario.html" %>

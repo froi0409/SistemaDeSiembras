@@ -1,8 +1,7 @@
 
 .modal-contenido{
-    background-color:#202643;
-    width:500px;
-    height: 250px;
+    background-color: #f1f0eb;
+    border: 0;
     padding: 10px 20px;
     margin: 10% auto;
     position: relative;
@@ -29,7 +28,7 @@ body {
     margin: 0;
     padding:0;
     background-image: url(../resources/img/fondo.jpg);
-    background-color: #202643;
+    background-color: #C8CCC4;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,9 +36,8 @@ body {
 }
 
 .contenedor-input {
-    background-color: #8e7d7c;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #f1f0eb;
+    border: 0;
     opacity: 0.8;
     padding: 20px;
     width: 400px;

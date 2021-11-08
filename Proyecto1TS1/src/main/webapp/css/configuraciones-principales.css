@@ -110,6 +110,12 @@ img {
     border: 0;
 }
 
+.solidForm {
+    background-color: #f1f0eb;
+
+    border: 0;
+}
+
 /*botonPassword*/
 .botonPass{
     background-color: white;

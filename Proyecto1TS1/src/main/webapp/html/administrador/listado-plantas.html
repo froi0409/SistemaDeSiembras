@@ -11,6 +11,7 @@
                     <th>Tipo de Planta</th>
                     <th>Descripcion</th>
                     <th>Duracion</th>
+                    <th></th>
                 </tr>
                 <%
                     for (int i = 0; i < listado.size(); i++) {
@@ -23,6 +24,7 @@
                     <%
                     }
                     %>
+                    <td><a class="btn btn-light" href="modificar-planta.jsp?codigoPlanta=<%=listado.get(i).get(0) %>">Modificar</a></td>
                 </tr>
 
                 <%
