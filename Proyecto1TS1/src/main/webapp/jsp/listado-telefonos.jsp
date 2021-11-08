@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
-        <title>Telefonos</title>
+        <title>Telefonoss</title>
     </head>
     <body>
         
