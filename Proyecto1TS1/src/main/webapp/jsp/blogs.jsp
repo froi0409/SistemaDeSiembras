@@ -9,6 +9,8 @@
 <html>
     <head>
         <%
+            String parametros = "PUBLICACION,codigo_publicacion,codigo_usuario,fecha,estado,publicacion";
+            session.setAttribute("parametros", parametros);
         %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%@include file="../html/importaciones/importaciones-head.html" %>
@@ -34,7 +36,7 @@
                     <a href="#" class="btn btn-danger" style="color: white">X</a>
                     <center>
 
-                    <form id="fomr1" name="fomr1" action="blogs.jsp" method="post" >
+                    <form id="fomr1" name="fomr1" action="/ControladorIngresoRegistro" method="post" >
                         <h5>Crear publicacion</h5>
                         <textarea placeholder="que estas pensando?" id="publicacion" name="publicacion"  rows="3" cols="30" autofocus></textarea>
                         
