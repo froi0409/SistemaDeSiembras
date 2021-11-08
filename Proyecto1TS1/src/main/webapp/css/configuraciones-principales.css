@@ -9,6 +9,10 @@ body {
     background-attachment: fixed;
 }
 
+p {
+    text-align: justify;
+}
+
 ul {
     list-style-type: none;
     margin: 0; 

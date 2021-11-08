@@ -4,6 +4,10 @@
     Author     : hectoradolfo
 --%>
 
+<%@page import="funciones.ObtenerListados"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,109 +51,131 @@
                 </div>  
             </div>
             
+            <%
+            /*aquí obtenemos todas las publicaciones que el usuario ha realizado*/
+            ObtenerListados obtenerListados = new ObtenerListados();
+            List<ArrayList<String>> publicaciones = obtenerListados.getTablaFrom("publicaciones");
+            
+            %>
+            
             <!--  aqui debe de ir el ciclo pra obtener todas las publicaciones  creadas y oque estan en la db
             lista de publicaciones 
             for( i = 0; listPublicaciones().size(); i ++) {
 
             -->
-            <div class="container-md">            
-                <div class="row g-3">
-                    <div class="col-sm-3">
+            <%
+            for(int i = 0; i < publicaciones.size(); i++) {            
+            %>
+                <div class="container-md">            
+                    <div class="row g-3">
+                        <div class="col-sm-3">
 
-                    </div>
-
-
-
-                    <div class="col-sm-6">
-                        <div class="formulario h-100 p-5 border rounded-3 border border-primary ">
+                        </div>
 
 
-                            <div class="row g-2">
 
-                                <h4>Mi primera publicacion eje: {{aqui puede ir algun titulo o fecha o id eje: listaPublicacione().getID(i)}}</h4>
-                                <div class="containre-sm"> 
-                                    <p>la luna llena adasdadasd
-                                        asasd
-                                        aqui va la publicacion ejemplo {{ listaPublicaciones().getPUBLICACION(i)}}
-                                    </p>
-                                </div>
-                            </div>
-                            <form >
-                                <div class="row g-3">
-                                    <div class="col">
-                                        <button class="btn btn-outline-success btn-block" type="button" id="like" name="like"
-                                                onclick="like();"><img src="../resources/img/ico/like.png" width="32"  alt="*"/>  Me gusta </button> <br>
+                        <div class="col-sm-6">
+                            <div class="formulario h-100 p-5 border rounded-3 border border-primary ">
 
-                                    </div>
-                                    <div class="col">
-                                        <button class="btn btn-outline-success btn-block" type="submit" id="comentar" name="comentar"
-                                                onclick="comentar();"><img src="../resources/img/ico/comment.png" width="32"  alt="*"/>  ver comentarios</button> 
 
+                                <div class="row g-2">
+                                    <h6><%=publicaciones.get(i).get(0) %></h6>
+                                    <h6><%=publicaciones.get(i).get(1) %></h6>
+                                    <div class="containre-sm"> 
+                                        <p>
+                                            <%=publicaciones.get(i).get(2) %>
+                                        </p>
                                     </div>
                                 </div>
-                            </form><br>
-
-
-
-                            <div class="form-floating">
-                                <form id="comentarios" name="comentarios">
-                                    <div class="input-group mb-3">
-                                        <input class="form-control"  type="text" placeholder="escribe un comentario"  id="comentario" name="comentario">
-                                        <button name="publicar-comentario" type="submit" class="btn btn-outline-secondary ">comentar</button>
-                                    </div><br></form>
-
-                            </div>
-
-                            <%
-                                if (request.getParameter("comentar") != null) {
-
-                            %>
-
-                            <div class="row g-3">
-                                <label>comentarios</label>
-
-                               <!--  aqui debe de ir el for para obtener los comentarios de las publicaciones 
-
-                                  for (int m = 0; m < listaComentariosDePublicacion.length(); m++ ) {
-
-                                -->
-
-                                <div class="containre-sm"> 
-                                    <h6>la luna llena adasdadasd
-                                        aqui tiene que ir el comentario
-                                         por ejemplo {{listCOmentearioPUblicacion().getComentario(m)}}
-                                    </h6>
-                                </div>
-                            </div>
-                            <form class="g-4">
-                                <div class="containre-sm">
+                                <form >
                                     <div class="row g-3">
                                         <div class="col">
-                                            <button class="btn btn-outline-success" type="button" id="like-comentario" name="like-comentario" 
-                                                    onclick="like();"><img src="https://cdn.icon-icons.com/icons2/2337/PNG/128/like_heart_thumbs_up_favourite_icon_142417.png" width="19"  alt="*"/>Me gusta </button> <br>
+                                            <button class="btn btn-outline-success btn-block" type="button" id="like" name="like"
+                                                    onclick="like();"><img src="../resources/img/ico/like.png" width="32"  alt="*"/>  Me gusta </button> <br>
+
+                                        </div>
+                                        <div class="col">
+                                            <button class="btn btn-outline-success btn-block" type="submit" id="comentar" name="comentar"
+                                                    onclick="comentar();"><img src="../resources/img/ico/comment.png" width="32"  alt="*"/>  ver comentarios</button> 
 
                                         </div>
                                     </div>
+                                </form><br>
+
+
+
+                                <div class="form-floating">
+                                    <form action="/ControladorIngresoRegistro?tipoRegistro=comentario&codigo_publicacion=<%=publicaciones.get(i).get(3) %>" method="POST">
+                                        <div class="input-group mb-3">
+                                            <input class="form-control"  type="text" placeholder="escribe un comentario"  id="comentario" name="comentario">
+                                            <button name="publicar-comentario" type="submit" class="btn btn-outline-secondary ">comentar</button>
+                                        </div><br>
+                                    </form>
+
                                 </div>
-                            </form>
-                            <!--    }   aqui termila el for para obtener los comentarios de cada publicacion -->
+
+                                <%
+                                    if (request.getParameter("comentar") != null) {
+
+                                %>
+
+                                <div class="row g-3">
+                                    <label>comentarios</label>
+
+                                   <!--  aqui debe de ir el for para obtener los comentarios de las publicaciones 
+
+                                      for (int m = 0; m < listaComentariosDePublicacion.length(); m++ ) {
+
+                                    -->
+                                    <%
+                                        /*obtenemos los comentarios*/
+                                        List<ArrayList<String>> comentarios = obtenerListados.getTablaFrom("comentarios");
+                                        for(int f = 0; f < comentarios.size(); f++) {
+                                            if(comentarios.get(f).get(0).equals(publicaciones.get(i).get(3))) {
+                                                
+                                            
+                                    %>
+                                    <div class="containre-sm"> 
+                                        <form class="g-2">
+                                        <h6><%=comentarios.get(f).get(1) %></h6>
+                                        <h6><%=comentarios.get(f).get(2) %></h6>
+                                        <p>
+                                            <%=comentarios.get(f).get(3) %>
+                                        </p>
+                                    
+                                
+                                        
+                                            <div class="containre-sm">
+                                                <div class="row g-3">
+                                                    <div class="col">
+                                                        <button class="btn btn-outline-success" type="button" id="like-comentario" name="like-comentario" 
+                                                                onclick="like();"><img src="https://cdn.icon-icons.com/icons2/2337/PNG/128/like_heart_thumbs_up_favourite_icon_142417.png" width="19"  alt="*"/>Me gusta </button> <br>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                
+                                <!--    }   aqui termila el for para obtener los comentarios de cada publicacion -->
 
 
-                            <%                            }
+                                <%                            
+                                            }
+                                        }
+                                    }
 
 
-                            %>
-
-
-
-
-
-
+                                %>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div> <br>
+                    </div> <br>
             </div>
 
+            <%
+            }
+            %>
                             <!-- aqui termina el ciclo que recorre la lista de todas las publicaciones 
                               de la base de datos } -->
 

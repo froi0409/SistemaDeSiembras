@@ -92,6 +92,12 @@ public class ObtenerListados {
             case "tipo-planta-admin":
                     query = "SELECT tipo, descripcion FROM TIPOPLANTA;";
                 break;
+            case "publicaciones":
+                    query = "SELECT codigo_usuario, fecha, publicacion, codigo_publicacion FROM PUBLICACION";
+                break;
+            case "comentarios":
+                    query = "SELECT codigo_publicacion, codigo_usuario, fecha, comentario FROM COMENTARIO";
+                break;
             default:
                 return new ArrayList();       
         }

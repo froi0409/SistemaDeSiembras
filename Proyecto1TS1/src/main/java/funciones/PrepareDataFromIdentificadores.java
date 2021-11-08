@@ -53,8 +53,11 @@ public class PrepareDataFromIdentificadores {
                     /*&& request.getSession().getAttribute("codigoAleatorio").equals("activado")*/){
                 //Creamos el codigo si esta activado la generacion de codigo aleatorio
                 String codSiembraAux = (String) request.getSession().getAttribute("codigo_siembra");
+                String codPublicacionAux = request.getParameter("codigo_publicacion");
                 if(identificadores.get(i).equals("codigo_siembra") && codSiembraAux != null && codSiembraAux.equals("") == false){//tiene un dato en la session
                     datos.add(codSiembraAux);
+                }else if(identificadores.get(i).equals("codigo_publicacion") && codPublicacionAux != null && codPublicacionAux.equals("") == false){//tiene un dato en la session
+                    datos.add(codPublicacionAux);
                 }else{
                     GenerarCodigoAleatorio genC = new GenerarCodigoAleatorio();
                     String auxCod = genC.generarCodAleatorio(identificadores.get(0), identificadores.get(0).substring(0, 3), 1000, 9999);    
@@ -63,8 +66,7 @@ public class PrepareDataFromIdentificadores {
                     if(identificadores.get(i).equals("codigo_siembra")){//si es codigo siembra y se acaba de generar un codigo aleatorio
                         request.getSession().setAttribute("codigo_siembra", auxCod);//lo establecemos en la session
                     }
-                }               
-                          
+                }      
             }           
             ////PASSWORDS
             else if(identificadores.get(i).equals("password")){   

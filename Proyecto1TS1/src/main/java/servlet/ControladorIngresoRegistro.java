@@ -41,8 +41,19 @@ public class ControladorIngresoRegistro extends HttpServlet {
             throws ServletException, IOException {
         //Obtenemos el listado de los parametros
         String parametros = (String) request.getSession().getAttribute("parametros");   
-        //Obtenemos el listado de identificadores en un listado
+        String tipoRegistro;
+        if((tipoRegistro = request.getParameter("tipoRegistro")) != null && tipoRegistro.equals("comentario")){
+        	parametros="COMENTARIO,codigo_comentario,codigo_publicacion,codigo_usuario,comentario,fecha";
+                request.getSession().setAttribute("parametros", parametros);
+                System.out.println("Hay un comentario: " + request.getParameter("codigo_publicacion") + ". Com: " + request.getParameter("comentario"));
+        }        
+
+//Obtenemos el listado de identificadores en un listado
         ArrayList<String> identificadores = new ArrayList<String>(Arrays.asList(parametros.split(",")));
+        System.out.println("parametros");
+        for(String element: identificadores) {
+            System.out.println(element);
+        }
         
         //Instanciammos
         RealizarIngresoParametros realizarIngreso = new RealizarIngresoParametros();
