@@ -70,6 +70,7 @@ public class ControladorIngresoRegistro extends HttpServlet {
             //Establecemos el código del usuario
             GetAttributeParameterRequest getAttribute = new GetAttributeParameterRequest(request);
             request.getSession().setAttribute("codigo_usuario", getAttribute.getAttributOrParameter("codigo_usuario"));
+            request.getSession().setAttribute("rol", "usuario");
         }else if(identificadores.get(0).equalsIgnoreCase("SIEMBRA")){
             
             //Declaramos los nombres de los atributos        

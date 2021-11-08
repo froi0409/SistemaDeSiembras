@@ -14,7 +14,11 @@
         <!-- Compiled and minified Bootstrap CSS -->
         <title>SowingMoon - Calendario Lunar</title>
     </head>
-    <body>        
+    <body>  
+        <%
+            session.setAttribute("mes", "11");
+            session.setAttribute("año", "2021");
+        %>
         <%@include file="html/nav/cabecera-principal.html"%>
         <div class="main-index">
             <%@include file="html/carousel-index.html" %>

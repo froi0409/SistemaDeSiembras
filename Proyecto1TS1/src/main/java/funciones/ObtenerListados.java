@@ -150,6 +150,10 @@ public class ObtenerListados {
                     datosWhere.add(usuario);//asignamos dato
                     datosWhere.add(obtenerParam.getAttributOrParameter("fecha"));
                 break;
+            case "admin datos":
+                query = "SELECT codigo_admin, nombre, correo FROM ADMIN WHERE codigo_admin = ?;";
+                datosWhere.add(usuario);//asignamos dato    
+            break;
             default:
                 return new ArrayList();       
         }

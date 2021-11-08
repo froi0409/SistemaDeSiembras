@@ -18,7 +18,10 @@
         <title>Crear Usuario</title>
     </head>
     <body background="../resources/img/create_user.jpg">
-        
+        <%
+            session.setAttribute("mes", "11");
+            session.setAttribute("año", "2021");
+        %>
         <%@include file="../html/nav/cabecera-no-sesion.html" %>
         <div class="main">
             <%@include file="mensaje.jsp" %>
